@@ -1,0 +1,8 @@
+package com.example.qanewsservice.exception;
+
+public class NewsNotFoundException extends RuntimeException {
+
+    public NewsNotFoundException(Long id) {
+        super("News not found with id: " + id);
+    }
+}

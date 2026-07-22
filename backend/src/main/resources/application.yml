@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: qa-news-service
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/qa_news_db}
+    username: ${SPRING_DATASOURCE_USERNAME:qa_news_user}
+    password: ${SPRING_DATASOURCE_PASSWORD:qa_news_password}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      initialization-fail-timeout: 60000
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui/index.html
+
+app:
+  security:
+    jwt:
+      secret: ${APP_SECURITY_JWT_SECRET:change-me-to-a-long-secret-key-for-local-development-only-change-me-please}
+      expiration-ms: ${APP_SECURITY_JWT_EXPIRATION_MS:3600000}
