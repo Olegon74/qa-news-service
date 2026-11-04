@@ -3,10 +3,11 @@ package com.example.qanewsservice.auth.service;
 import com.example.qanewsservice.auth.model.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.io.DecodingException;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import io.jsonwebtoken.security.WeakKeyException;
 import java.nio.charset.StandardCharsets;
-import java.security.Key;
 import java.util.Date;
 import java.util.function.Function;
 import javax.crypto.SecretKey;
@@ -50,7 +51,7 @@ public class JwtService {
 
     public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
         Claims claims = Jwts.parser()
-                .verifyWith((SecretKey) getSigningKey())
+                .verifyWith(getSigningKey())
                 .build()
                 .parseSignedClaims(token)
                 .getPayload();
@@ -61,11 +62,11 @@ public class JwtService {
         return extractClaim(token, Claims::getExpiration).before(new Date());
     }
 
-    private Key getSigningKey() {
+    private SecretKey getSigningKey() {
         try {
             byte[] keyBytes = Decoders.BASE64.decode(secret);
             return Keys.hmacShaKeyFor(keyBytes);
-        } catch (IllegalArgumentException ignored) {
+        } catch (DecodingException | IllegalArgumentException | WeakKeyException ignored) {
             return Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
         }
     }

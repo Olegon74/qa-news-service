@@ -43,6 +43,8 @@ Frontend:
 
 - Docker Compose
 - PostgreSQL 16
+- Selenoid / Selenoid UI для remote UI-тестов
+- GitHub Actions ручной запуск UI-тестов по выбранному браузеру, версии и разрешению
 
 ## Архитектура проекта
 
@@ -550,6 +552,31 @@ Docker Compose config:
 ```bash
 docker compose config
 ```
+
+## UI-тесты через Selenoid
+
+Локальный запуск поднимет приложение и Selenoid-совместимый hub, затем выполнит UI-тесты в Chrome по умолчанию:
+
+```powershell
+.\scripts\run-ui-selenoid.ps1
+```
+
+Браузер и одну из двух предыдущих версий можно выбрать параметрами:
+
+```powershell
+.\scripts\run-ui-selenoid.ps1 -Browser firefox -BrowserVersion before_previous
+.\scripts\run-ui-selenoid.ps1 -Browser opera -Tag SMOKE
+```
+
+Selenoid UI будет доступен на:
+
+```text
+http://localhost:8081
+```
+
+Ручной запуск в GitHub Actions находится в workflow `Manual UI tests in Selenoid`.
+Доступны браузеры `chrome`, `firefox`, `opera`, `edge`; версии `previous`, `before_previous`; разрешения `1920x1080`, `1366x768`, `1280x720`. Safari требует macOS и `safaridriver`.
+Подробности: [docs/selenoid-github-actions-guide.md](docs/selenoid-github-actions-guide.md).
 
 ## Future testing plan
 

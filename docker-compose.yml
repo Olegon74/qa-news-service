@@ -15,6 +15,8 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
+    networks:
+      - qa-news-network
 
   backend:
     build:
@@ -28,20 +30,76 @@ services:
       SPRING_DATASOURCE_PASSWORD: qa_news_password
       APP_SECURITY_JWT_SECRET: change-me-to-a-long-secret-key-for-local-development-only-change-me-please
       APP_SECURITY_JWT_EXPIRATION_MS: 3600000
+      APP_CORS_ALLOWED_ORIGINS: ${APP_CORS_ALLOWED_ORIGINS:-http://localhost:3000}
     depends_on:
       postgres:
         condition: service_healthy
+    networks:
+      - qa-news-network
 
   frontend:
     build:
       context: ./frontend
       args:
-        VITE_API_BASE_URL: http://localhost:8080
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:8080}
     container_name: qa-news-frontend
     ports:
       - "3000:80"
     depends_on:
       - backend
+    networks:
+      - qa-news-network
+
+  selenoid:
+    image: websummoner/websummoner:1.1.1
+    container_name: qa-news-selenoid
+    environment:
+      DOCKER_API_VERSION: ${SELENOID_DOCKER_API_VERSION:-1.40}
+    profiles:
+      - ui-tests
+    ports:
+      - "4444:4444"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./selenoid:/etc/websummoner:ro
+      - ./selenoid/logs:/opt/selenoid/logs
+    command:
+      - -conf
+      - /etc/websummoner/browsers.json
+      - -container-network
+      - qa-news-network
+      - -limit
+      - ${SELENOID_LIMIT:-6}
+      - -timeout
+      - 3m0s
+      - -service-startup-timeout
+      - 2m0s
+      - -session-attempt-timeout
+      - 2m0s
+      - -capture-driver-logs
+      - -log-output-dir
+      - /opt/selenoid/logs
+    networks:
+      - qa-news-network
+
+  selenoid-ui:
+    image: websummoner/websummoner-ui:1.0.0
+    container_name: qa-news-selenoid-ui
+    profiles:
+      - ui-tests
+    ports:
+      - "8081:8080"
+    command:
+      - --websummoner-uri
+      - http://selenoid:4444
+    depends_on:
+      - selenoid
+    networks:
+      - qa-news-network
 
 volumes:
   postgres_data:
+
+networks:
+  qa-news-network:
+    name: qa-news-network

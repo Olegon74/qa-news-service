@@ -2,7 +2,7 @@ import axios from 'axios';
 import { getToken } from '../auth/authStorage';
 import type { NewsRequest, NewsResponse, NewsStatus } from '../types/news';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8080';
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8080').replace(/\/$/, '');
 
 const newsClient = axios.create({
   baseURL: API_BASE_URL

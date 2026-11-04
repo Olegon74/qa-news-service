@@ -18,6 +18,9 @@ build/
 .env.*
 !.env.example
 
+# Local Codex memory
+CODEX_MEMORY.md
+
 # IntelliJ IDEA
 .idea/
 *.iws
@@ -29,6 +32,10 @@ build/
 
 # Docker
 docker-compose.override.yml
+selenoid/logs/*
+!selenoid/logs/.gitkeep
+selenoid/video/*
+!selenoid/video/.gitkeep
 
 # Logs
 *.log
@@ -37,6 +44,3 @@ logs/
 # OS
 .DS_Store
 Thumbs.db
-
-# Others
-CODEX_MEMORY.md
