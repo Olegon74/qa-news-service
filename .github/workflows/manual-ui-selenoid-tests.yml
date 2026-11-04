@@ -1,8 +1,39 @@
-name: Manual UI tests in Selenoid
+name: Manual API and UI tests
 
 on:
   workflow_dispatch:
     inputs:
+      test_scope:
+        description: Test scope
+        required: true
+        type: choice
+        default: ui
+        options:
+          - api
+          - ui
+          - all
+      test_class:
+        description: Test class (all means every class in scope)
+        required: true
+        type: choice
+        default: all
+        options:
+          - all
+          - ArchivingNewsTests
+          - AuthApiTests
+          - CreatingNewsTests
+          - DeletingNewsTests
+          - GettingNewsTests
+          - PublishingNewsTests
+          - UpdatingNewsTests
+          - ArchivingNewsUiTests
+          - AuthorizationUiTests
+          - CreatingNewsUiTests
+          - DeletingNewsUiTests
+          - LogoutUiTests
+          - PublishingNewsUiTests
+          - UpdatingNewsUiTests
+          - ViewingNewsUiTests
       browser:
         description: Browser
         required: true
@@ -31,12 +62,12 @@ on:
           - 1366x768
           - 1280x720
       test_tag:
-        description: JUnit tag
+        description: Run all tests or only SMOKE tests in scope
         required: true
         type: choice
-        default: UI
+        default: ALL
         options:
-          - UI
+          - ALL
           - SMOKE
       selenoid_limit:
         description: Parallel Selenoid sessions limit
@@ -49,12 +80,14 @@ on:
           - "9"
 
 jobs:
-  ui-tests:
-    name: ${{ inputs.browser }} ${{ inputs.browser_version }} ${{ inputs.browser_size }}
+  tests:
+    name: ${{ inputs.test_scope }} / ${{ inputs.test_class }} / ${{ inputs.test_tag }}
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
 
     env:
+      TEST_SCOPE: ${{ inputs.test_scope }}
+      TEST_CLASS: ${{ inputs.test_class }}
       BROWSER: ${{ inputs.browser }}
       BROWSER_VERSION: ${{ inputs.browser_version }}
       BROWSER_SIZE: ${{ inputs.browser_size }}
@@ -67,6 +100,32 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Validate test selection
+        shell: bash
+        run: |
+          set -euo pipefail
+          case "${TEST_SCOPE}" in
+            all)
+              if [[ "${TEST_CLASS}" != all ]]; then
+                echo "Choose test_class=all when test_scope=all" >&2
+                exit 1
+              fi
+              ;;
+            api)
+              if [[ "${TEST_CLASS}" == *UiTests ]]; then
+                echo "Choose an API test class or all for test_scope=api" >&2
+                exit 1
+              fi
+              ;;
+            ui)
+              if [[ "${TEST_CLASS}" != all && "${TEST_CLASS}" != *UiTests ]]; then
+                echo "Choose a UI test class or all for test_scope=ui" >&2
+                exit 1
+              fi
+              ;;
+            *) echo "Unsupported test_scope: ${TEST_SCOPE}" >&2; exit 1 ;;
+          esac
+
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
@@ -75,6 +134,7 @@ jobs:
           cache: maven
 
       - name: Resolve selected browser image
+        if: ${{ inputs.test_scope != 'api' }}
         id: browser-image
         shell: bash
         run: |
@@ -98,11 +158,18 @@ jobs:
           echo "Selected browser image: ${image} (${version})"
 
       - name: Pull Selenoid browser image
+        if: ${{ inputs.test_scope != 'api' }}
         run: docker pull "${{ steps.browser-image.outputs.image }}"
 
-      - name: Start application and Selenoid
+      - name: Start application and test services
+        shell: bash
         run: |
-          docker compose --profile ui-tests up -d --build postgres backend frontend selenoid selenoid-ui
+          set -euo pipefail
+          services=(postgres backend)
+          if [[ "${TEST_SCOPE}" != api ]]; then
+            services+=(frontend selenoid selenoid-ui)
+          fi
+          docker compose --profile ui-tests up -d --build "${services[@]}"
 
       - name: Wait for services
         shell: bash
@@ -129,26 +196,60 @@ jobs:
           }
 
           wait_url "Backend" "http://localhost:8080/v3/api-docs"
-          wait_url "Frontend" "http://localhost:3000"
-          wait_url "Selenoid" "http://localhost:4444/status"
+          if [[ "${TEST_SCOPE}" != api ]]; then
+            wait_url "Frontend" "http://localhost:3000"
+            wait_url "Selenoid" "http://localhost:4444/status"
+          fi
 
-      - name: Run UI tests
+      - name: Run selected tests
         working-directory: backend
+        shell: bash
         run: |
-          mvn -B test -Pparallel-ui \
-            -Dtag="${TEST_TAG}" \
-            -Denv=dev \
-            -Dapi.base_url=http://localhost:8080 \
-            -Dui.base_url=http://frontend \
-            -Ddb.jdbc_url=jdbc:postgresql://localhost:5432/qa_news_db \
-            -Ddb.username=qa_news_user \
-            -Ddb.password=qa_news_password \
-            -Dremote_url=http://localhost:4444/wd/hub \
-            -Dbrowser="${BROWSER}" \
-            -Dbrowser_version="${{ steps.browser-image.outputs.version }}" \
-            -Dbrowser_size="${BROWSER_SIZE}" \
-            -Dheadless=false \
-            -Dselenoid.session_name="qa-news ${BROWSER} ${{ steps.browser-image.outputs.version }} ${BROWSER_SIZE}"
+          set -uo pipefail
+          run_profile() {
+            local scope="$1"
+            local profile tag
+            if [[ "${scope}" == api ]]; then
+              profile=parallel-api
+              tag=API
+              if [[ "${TEST_TAG}" == SMOKE ]]; then tag='API & SMOKE'; fi
+            else
+              profile=parallel-ui
+              tag=UI
+              if [[ "${TEST_TAG}" == SMOKE ]]; then tag=SMOKE; fi
+            fi
+
+            local -a args=(
+              mvn -B test "-P${profile}" "-Dtag=${tag}" -Denv=dev
+              -Dapi.base_url=http://localhost:8080
+              -Ddb.jdbc_url=jdbc:postgresql://localhost:5432/qa_news_db
+              -Ddb.username=qa_news_user -Ddb.password=qa_news_password
+            )
+            if [[ "${TEST_CLASS}" != all ]]; then
+              args+=("-Dtest=${TEST_CLASS}")
+            fi
+            if [[ "${scope}" == ui ]]; then
+              args+=(
+                -Dui.base_url=http://frontend
+                -Dremote_url=http://localhost:4444/wd/hub
+                "-Dbrowser=${BROWSER}"
+                "-Dbrowser_version=${{ steps.browser-image.outputs.version }}"
+                "-Dbrowser_size=${BROWSER_SIZE}"
+                -Dheadless=false
+                "-Dselenoid.session_name=qa-news ${BROWSER} ${{ steps.browser-image.outputs.version }} ${BROWSER_SIZE}"
+              )
+            fi
+            "${args[@]}"
+          }
+
+          result=0
+          if [[ "${TEST_SCOPE}" == api || "${TEST_SCOPE}" == all ]]; then
+            run_profile api || result=1
+          fi
+          if [[ "${TEST_SCOPE}" == ui || "${TEST_SCOPE}" == all ]]; then
+            run_profile ui || result=1
+          fi
+          exit "${result}"
 
       - name: Collect Docker logs
         if: always()
@@ -163,7 +264,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: ui-tests-${{ inputs.browser }}-${{ inputs.browser_version }}-${{ inputs.browser_size }}
+          name: tests-${{ inputs.test_scope }}-${{ inputs.test_class }}-${{ inputs.test_tag }}-${{ github.run_id }}
           path: |
             backend/target/surefire-reports
             backend/target/allure-results
