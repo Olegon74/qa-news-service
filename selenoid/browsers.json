@@ -1,0 +1,30 @@
+{
+  "chrome": {
+    "default": "154.0",
+    "versions": {
+      "154.0": {"image": "websummoner/chrome:154.0", "port": "4444", "path": "/", "shmSize": 1073741824},
+      "153.0": {"image": "websummoner/chrome:153.0", "port": "4444", "path": "/", "shmSize": 1073741824}
+    }
+  },
+  "firefox": {
+    "default": "157.0",
+    "versions": {
+      "157.0": {"image": "websummoner/firefox:157.0", "port": "4444", "path": "/", "shmSize": 1073741824},
+      "156.0": {"image": "websummoner/firefox:156.0", "port": "4444", "path": "/", "shmSize": 1073741824}
+    }
+  },
+  "opera": {
+    "default": "136.0",
+    "versions": {
+      "136.0": {"image": "websummoner/opera:136.0", "port": "4444", "path": "/", "shmSize": 1073741824},
+      "135.0": {"image": "websummoner/opera:135.0", "port": "4444", "path": "/", "shmSize": 1073741824}
+    }
+  },
+  "MicrosoftEdge": {
+    "default": "154.0",
+    "versions": {
+      "154.0": {"image": "websummoner/edge:154.0", "port": "4444", "path": "/", "shmSize": 1073741824},
+      "153.0": {"image": "websummoner/edge:153.0", "port": "4444", "path": "/", "shmSize": 1073741824}
+    }
+  }
+}

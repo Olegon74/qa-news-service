@@ -1,0 +1,176 @@
+name: Manual UI tests in Selenoid
+
+on:
+  workflow_dispatch:
+    inputs:
+      browser:
+        description: Browser
+        required: true
+        type: choice
+        default: chrome
+        options:
+          - chrome
+          - firefox
+          - opera
+          - edge
+      browser_version:
+        description: Older browser version (two available image releases)
+        required: true
+        type: choice
+        default: previous
+        options:
+          - previous
+          - before_previous
+      browser_size:
+        description: Browser resolution
+        required: true
+        type: choice
+        default: 1920x1080
+        options:
+          - 1920x1080
+          - 1366x768
+          - 1280x720
+      test_tag:
+        description: JUnit tag
+        required: true
+        type: choice
+        default: UI
+        options:
+          - UI
+          - SMOKE
+      selenoid_limit:
+        description: Parallel Selenoid sessions limit
+        required: true
+        type: choice
+        default: "6"
+        options:
+          - "3"
+          - "6"
+          - "9"
+
+jobs:
+  ui-tests:
+    name: ${{ inputs.browser }} ${{ inputs.browser_version }} ${{ inputs.browser_size }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    env:
+      BROWSER: ${{ inputs.browser }}
+      BROWSER_VERSION: ${{ inputs.browser_version }}
+      BROWSER_SIZE: ${{ inputs.browser_size }}
+      TEST_TAG: ${{ inputs.test_tag }}
+      SELENOID_LIMIT: ${{ inputs.selenoid_limit }}
+      VITE_API_BASE_URL: /
+      APP_CORS_ALLOWED_ORIGINS: http://localhost:3000,http://frontend
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+
+      - name: Resolve selected browser image
+        id: browser-image
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          browser_key="${BROWSER}"
+          if [[ "${BROWSER}" == "edge" ]]; then browser_key="MicrosoftEdge"; fi
+
+          version=$(jq -er --arg browser "${browser_key}" --arg slot "${BROWSER_VERSION}" '
+            .[$browser] as $config |
+            if $slot == "previous" then $config.default
+            elif $slot == "before_previous" then
+              ($config.versions | keys | map(select(. != $config.default)) | .[0])
+            else error("Unsupported version slot") end
+          ' selenoid/browsers.json)
+          image=$(jq -er --arg browser "${browser_key}" --arg version "${version}" \
+            '.[$browser].versions[$version].image' selenoid/browsers.json)
+
+          echo "image=${image}" >> "${GITHUB_OUTPUT}"
+          echo "version=${version}" >> "${GITHUB_OUTPUT}"
+          echo "Selected browser image: ${image} (${version})"
+
+      - name: Pull Selenoid browser image
+        run: docker pull "${{ steps.browser-image.outputs.image }}"
+
+      - name: Start application and Selenoid
+        run: |
+          docker compose --profile ui-tests up -d --build postgres backend frontend selenoid selenoid-ui
+
+      - name: Wait for services
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          wait_url() {
+            local name="$1"
+            local url="$2"
+
+            for attempt in {1..60}; do
+              if curl -fsS "${url}" >/dev/null; then
+                echo "${name} is ready"
+                return 0
+              fi
+              echo "Waiting for ${name} (${attempt}/60)"
+              sleep 2
+            done
+
+            echo "${name} is not ready: ${url}" >&2
+            docker compose ps
+            docker compose logs --no-color backend frontend selenoid
+            return 1
+          }
+
+          wait_url "Backend" "http://localhost:8080/v3/api-docs"
+          wait_url "Frontend" "http://localhost:3000"
+          wait_url "Selenoid" "http://localhost:4444/status"
+
+      - name: Run UI tests
+        working-directory: backend
+        run: |
+          mvn -B test -Pparallel-ui \
+            -Dtag="${TEST_TAG}" \
+            -Denv=dev \
+            -Dapi.base_url=http://localhost:8080 \
+            -Dui.base_url=http://frontend \
+            -Ddb.jdbc_url=jdbc:postgresql://localhost:5432/qa_news_db \
+            -Ddb.username=qa_news_user \
+            -Ddb.password=qa_news_password \
+            -Dremote_url=http://localhost:4444/wd/hub \
+            -Dbrowser="${BROWSER}" \
+            -Dbrowser_version="${{ steps.browser-image.outputs.version }}" \
+            -Dbrowser_size="${BROWSER_SIZE}" \
+            -Dheadless=false \
+            -Dselenoid.session_name="qa-news ${BROWSER} ${{ steps.browser-image.outputs.version }} ${BROWSER_SIZE}"
+
+      - name: Collect Docker logs
+        if: always()
+        run: |
+          mkdir -p backend/target/docker-logs
+          docker compose ps > backend/target/docker-logs/compose-ps.txt || true
+          docker compose logs --no-color backend > backend/target/docker-logs/backend.log || true
+          docker compose logs --no-color frontend > backend/target/docker-logs/frontend.log || true
+          docker compose logs --no-color selenoid > backend/target/docker-logs/selenoid.log || true
+
+      - name: Upload test artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-tests-${{ inputs.browser }}-${{ inputs.browser_version }}-${{ inputs.browser_size }}
+          path: |
+            backend/target/surefire-reports
+            backend/target/allure-results
+            backend/target/docker-logs
+            selenoid/logs
+          if-no-files-found: ignore
+
+      - name: Stop containers
+        if: always()
+        run: docker compose down -v
