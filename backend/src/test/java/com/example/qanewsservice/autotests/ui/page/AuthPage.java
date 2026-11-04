@@ -6,8 +6,11 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.example.qanewsservice.autotests.config.TestUser;
 import io.qameta.allure.Step;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class AuthPage extends BasePage {
+
+    private static final ReentrantLock GLOBAL_LOGIN_LOCK = new ReentrantLock(true);
 
     private final SelenideElement loginForm = byTestId("login-form");
     private final SelenideElement usernameInput = byTestId("username-input");
@@ -59,9 +62,14 @@ public class AuthPage extends BasePage {
 
     @Step("Авторизоваться пользователем {user}")
     public NewsManagementPage loginAs(TestUser user) {
-        return fillUsername(user.username())
-                .fillPassword(user.password())
-                .submitSuccessful();
+        GLOBAL_LOGIN_LOCK.lock();
+        try {
+            return fillUsername(user.username())
+                    .fillPassword(user.password())
+                    .submitSuccessful();
+        } finally {
+            GLOBAL_LOGIN_LOCK.unlock();
+        }
     }
 
     @Step("Проверить, что ошибка авторизации содержит текст: {text}")

@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public final class DbManager {
 
-    private static HikariDataSource dataSource;
+    private static volatile HikariDataSource dataSource;
 
     private DbManager() {
     }
