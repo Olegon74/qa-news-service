@@ -59,7 +59,12 @@ public final class KafkaTestConsumer implements AutoCloseable {
                     find(newsId).ifPresent(found::set);
                     return found.get() != null;
                 });
-        return found.get();
+        ObservedEvent event = found.get();
+        Allure.addAttachment("Kafka event for newsId=" + newsId,
+                "application/json", event.payload().toPrettyString(), ".json");
+        Allure.addAttachment("Kafka record key for newsId=" + newsId,
+                "text/plain", event.key());
+        return event;
     }
 
     public void assertNoEvent(long newsId, Duration observationWindow) {
@@ -73,6 +78,8 @@ public final class KafkaTestConsumer implements AutoCloseable {
             Duration wait = remaining.compareTo(pollInterval) < 0 ? remaining : pollInterval;
             Optional<ObservedEvent> unexpected = find(newsId, wait);
             if (unexpected.isPresent()) {
+                Allure.addAttachment("Unexpected Kafka event for newsId=" + newsId,
+                        "application/json", unexpected.get().payload().toPrettyString(), ".json");
                 throw new AssertionError("Unexpected Kafka event for newsId=" + newsId
                         + ", eventId=" + unexpected.get().payload().path("eventId").asText());
             }

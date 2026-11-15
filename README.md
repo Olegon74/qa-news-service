@@ -11,7 +11,33 @@
 - Kafka-тесты
 - Testcontainers-тесты
 
-Сейчас реализованы только базовый backend и простой frontend. Автотесты, Kafka, WireMock и дополнительные интеграции пока не добавлены.
+В репозитории есть backend, frontend, API/UI автотесты и Kafka integration tests.
+
+## Allure Reports в GitHub Pages
+
+Отчёты публикует workflow [Test suites and Allure Pages](.github/workflows/allure-pages.yml):
+
+- [Главная страница отчётов](https://Olegon74.github.io/qa-news-service/)
+- [API tests](https://Olegon74.github.io/qa-news-service/api/)
+- [UI tests](https://Olegon74.github.io/qa-news-service/ui/)
+- [Kafka tests](https://Olegon74.github.io/qa-news-service/kafka/)
+
+Workflow запускает три независимые jobs на `main` и для pull requests. После тестов `allure-report` собирает доступные результаты и публикует HTML только с `main`; для pull requests доступны только artifacts. В Actions → **Test suites and Allure Pages** → **Run workflow** можно выбрать `all`, `api`, `ui` или `kafka`. При выборе одной группы отчёты остальных групп сохраняются. Отчёты появятся по ссылкам после первого успешного запуска публикации.
+
+Перед первым запуском в GitHub откройте **Settings → Pages → Build and deployment → Source** и выберите **GitHub Actions**. В **Settings → Actions → General → Workflow permissions** разрешите **Read and write permissions**, чтобы workflow мог сохранять историю в ветке `allure-pages-state`. Для job `github-pages` не задавайте правило, которое блокирует публикацию с `main`. Убедитесь, что GitHub Pages разрешён для репозитория.
+
+Каждая test job загружает `allure-results` и Maven XML reports даже при падении тестов. API запросы/ответы (с маскировкой токенов и паролей), UI скриншоты и Kafka JSON-события хранятся как Allure attachments. Для Allure 2 предыдущая история API, UI и Kafka хранится отдельно в служебной ветке `allure-pages-state`; при следующей генерации она добавляется к результатам соответствующей группы. Если тесты упали, их job остаётся красной, но доступные результаты всё равно публикуются. Если тесты не создали ни одного Allure result, прежний отчёт сохраняется.
+
+Локальные команды для тех же Maven-профилей:
+
+```bash
+cd backend
+mvn -B test -Pparallel-api -Dtag=API -Denv=dev
+mvn -B test -Pparallel-ui -Dtag=UI -Denv=dev
+mvn -B verify -Pkafka-it
+```
+
+API/UI команды требуют запущенные сервисы Docker Compose и параметры подключения, приведённые в workflow. Kafka integration tests поднимают Kafka и PostgreSQL через Testcontainers; для них нужен только Docker daemon.
 
 ## Технологический стек
 
@@ -577,35 +603,3 @@ http://localhost:8081
 Ручной запуск в GitHub Actions находится в workflow `Manual UI tests in Selenoid`.
 Доступны браузеры `chrome`, `firefox`, `opera`, `edge`; версии `previous`, `before_previous`; разрешения `1920x1080`, `1366x768`, `1280x720`. Safari требует macOS и `safaridriver`.
 Подробности: [docs/selenoid-github-actions-guide.md](docs/selenoid-github-actions-guide.md).
-
-## Future testing plan
-
-В следующих этапах можно добавить:
-
-- API tests with Java 21, JUnit 5, RestAssured, AssertJ, Allure
-- UI tests with Selenide
-- Contract tests with JSON Schema/OpenAPI validation
-- WireMock tests for external file-service
-- Kafka tests for `news.published` event
-- Testcontainers for PostgreSQL/Kafka/WireMock
-- GitHub Actions pipeline
-- Allure Report publication
-
-## Что пока не добавлено
-
-В проект намеренно пока не добавлены:
-
-- Kafka
-- WireMock
-- автотесты
-- registration
-- refresh token
-- password reset
-- email confirmation
-- OAuth2
-- Keycloak
-- user management UI
-- Flyway
-- Liquibase
-- Kubernetes
-- сложный дизайн

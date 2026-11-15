@@ -50,7 +50,7 @@ public class MaskingFilter implements Filter {
         }
     }
 
-    private String bodyToString(Object body) {
+    static String bodyToString(Object body) {
         if (body == null) {
             return "";
         }
@@ -67,7 +67,7 @@ public class MaskingFilter implements Filter {
         }
     }
 
-    private String maskSecrets(String value) {
+    static String maskSecrets(String value) {
         return value
                 .replaceAll("(\"token\"\\s*:\\s*\")(.*?)(\")", "$1***masked***$3")
                 .replaceAll("(\"access_token\"\\s*:\\s*\")(.*?)(\")", "$1***masked***$3")

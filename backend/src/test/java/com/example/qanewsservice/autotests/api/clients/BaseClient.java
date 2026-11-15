@@ -4,13 +4,13 @@ import static io.restassured.RestAssured.given;
 
 import com.example.qanewsservice.autotests.api.assertions.AssertableResponse;
 import com.example.qanewsservice.autotests.api.filter.MaskingFilter;
+import com.example.qanewsservice.autotests.api.filter.SafeAllureFilter;
 import com.example.qanewsservice.autotests.api.models.LoginRequest;
 import com.example.qanewsservice.autotests.api.requests.LoginRequestBuilder;
 import com.example.qanewsservice.autotests.api.response.LoginResponse;
 import com.example.qanewsservice.autotests.config.ConfigService;
 import com.example.qanewsservice.autotests.config.JasyptConfig;
 import com.example.qanewsservice.autotests.config.TestUser;
-import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
@@ -71,7 +71,7 @@ public abstract class BaseClient {
                 .setBaseUri(baseUrl)
                 .setContentType(ContentType.JSON)
                 .addFilter(new MaskingFilter())
-                .addFilter(new AllureRestAssured())
+                .addFilter(new SafeAllureFilter())
                 .build();
     }
 

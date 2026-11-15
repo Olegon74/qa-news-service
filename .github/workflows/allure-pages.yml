@@ -1,0 +1,300 @@
+name: Test suites and Allure Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      suite:
+        description: Test suite to run
+        required: true
+        type: choice
+        default: all
+        options: [all, api, ui, kafka]
+
+jobs:
+  api-tests:
+    if: ${{ github.event_name != 'workflow_dispatch' || inputs.suite == 'all' || inputs.suite == 'api' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare artifact directory
+        if: always()
+        run: mkdir -p backend/target/ci-artifacts && echo api > backend/target/ci-artifacts/suite.txt
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+          cache-dependency-path: backend/pom.xml
+      - name: Start application
+        run: docker compose up -d --build postgres backend
+      - name: Wait for backend
+        shell: bash
+        run: |
+          for attempt in {1..60}; do
+            if curl -fsS http://localhost:8080/v3/api-docs >/dev/null; then exit 0; fi
+            echo "Waiting for backend ($attempt/60)"
+            sleep 2
+          done
+          docker compose ps
+          exit 1
+      - name: Run API tests
+        working-directory: backend
+        run: >-
+          mvn -B test -Pparallel-api -Dtag=API -Denv=dev
+          -Dapi.base_url=http://localhost:8080
+          -Ddb.jdbc_url=jdbc:postgresql://localhost:5432/qa_news_db
+          -Ddb.username=qa_news_user -Ddb.password=qa_news_password
+      - name: Collect Docker logs
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p backend/target/docker-logs
+          docker compose ps > backend/target/docker-logs/compose-ps.txt || true
+          docker compose logs --no-color backend > backend/target/docker-logs/backend.log || true
+          docker compose logs --no-color kafka > backend/target/docker-logs/kafka.log || true
+      - name: API test summary
+        if: always()
+        run: python3 backend/scripts/allure_ci.py job-summary api backend/target/surefire-reports
+      - name: Upload API results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: suite-api
+          path: |
+            backend/target/ci-artifacts/
+            backend/target/allure-results/
+            backend/target/surefire-reports/
+            backend/target/docker-logs/
+          if-no-files-found: warn
+      - name: Stop containers
+        if: always()
+        run: docker compose down -v
+
+  ui-tests:
+    if: ${{ github.event_name != 'workflow_dispatch' || inputs.suite == 'all' || inputs.suite == 'ui' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    permissions:
+      contents: read
+    env:
+      VITE_API_BASE_URL: /
+      APP_CORS_ALLOWED_ORIGINS: http://localhost:3000,http://frontend
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare artifact directory
+        if: always()
+        run: mkdir -p backend/target/ci-artifacts && echo ui > backend/target/ci-artifacts/suite.txt
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+          cache-dependency-path: backend/pom.xml
+      - name: Pull Selenoid Chrome image
+        id: browser
+        shell: bash
+        run: |
+          version=$(jq -er '.chrome.default' selenoid/browsers.json)
+          image=$(jq -er --arg version "$version" '.chrome.versions[$version].image' selenoid/browsers.json)
+          docker pull "$image"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+      - name: Start application and Selenoid
+        run: docker compose --profile ui-tests up -d --build postgres backend frontend selenoid
+      - name: Wait for browser services
+        shell: bash
+        run: |
+          wait_url() {
+            for attempt in {1..60}; do
+              if curl -fsS "$1" >/dev/null; then return 0; fi
+              echo "Waiting for $1 ($attempt/60)"
+              sleep 2
+            done
+            docker compose ps
+            return 1
+          }
+          wait_url http://localhost:8080/v3/api-docs
+          wait_url http://localhost:3000
+          wait_url http://localhost:4444/status
+      - name: Run UI tests
+        working-directory: backend
+        run: >-
+          mvn -B test -Pparallel-ui -Dtag=UI -Denv=dev
+          -Dapi.base_url=http://localhost:8080
+          -Ddb.jdbc_url=jdbc:postgresql://localhost:5432/qa_news_db
+          -Ddb.username=qa_news_user -Ddb.password=qa_news_password
+          -Dui.base_url=http://frontend
+          -Dremote_url=http://localhost:4444/wd/hub
+          -Dbrowser=chrome -Dbrowser_version=${{ steps.browser.outputs.version }}
+          -Dbrowser_size=1920x1080 -Dheadless=false
+      - name: Collect UI logs and screenshots
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p backend/target/docker-logs backend/target/ci-artifacts
+          docker compose ps > backend/target/docker-logs/compose-ps.txt || true
+          docker compose logs --no-color backend > backend/target/docker-logs/backend.log || true
+          docker compose logs --no-color frontend > backend/target/docker-logs/frontend.log || true
+          docker compose logs --no-color selenoid > backend/target/docker-logs/selenoid.log || true
+          if [[ -d selenoid/logs ]]; then cp -a selenoid/logs backend/target/ci-artifacts/selenoid-logs; fi
+          for screenshots in backend/target/build/reports/tests backend/build/reports/tests; do
+            if [[ -d "$screenshots" ]]; then
+              cp -a "$screenshots" backend/target/ci-artifacts/selenide-screenshots
+              break
+            fi
+          done
+      - name: UI test summary
+        if: always()
+        run: python3 backend/scripts/allure_ci.py job-summary ui backend/target/surefire-reports
+      - name: Upload UI results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: suite-ui
+          path: |
+            backend/target/ci-artifacts/
+            backend/target/allure-results/
+            backend/target/surefire-reports/
+            backend/target/docker-logs/
+          if-no-files-found: warn
+      - name: Stop containers
+        if: always()
+        run: docker compose --profile ui-tests down -v
+
+  kafka-tests:
+    if: ${{ github.event_name != 'workflow_dispatch' || inputs.suite == 'all' || inputs.suite == 'kafka' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare artifact directory
+        if: always()
+        run: mkdir -p backend/target/ci-artifacts && echo kafka > backend/target/ci-artifacts/suite.txt
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+          cache-dependency-path: backend/pom.xml
+      - name: Run Kafka and PostgreSQL Testcontainers tests
+        run: mvn -B -f backend/pom.xml -Pkafka-it verify
+      - name: Kafka test summary
+        if: always()
+        run: python3 backend/scripts/allure_ci.py job-summary kafka backend/target/failsafe-reports
+      - name: Upload Kafka results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: suite-kafka
+          path: |
+            backend/target/ci-artifacts/
+            backend/target/allure-results/
+            backend/target/failsafe-reports/
+          if-no-files-found: warn
+
+  allure-report:
+    if: ${{ always() && github.event_name != 'pull_request' && github.ref == 'refs/heads/main' }}
+    needs: [api-tests, ui-tests, kafka-tests]
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    concurrency:
+      group: qa-news-allure-pages
+      cancel-in-progress: false
+    permissions:
+      actions: read
+      contents: write
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set report paths
+        run: |
+          {
+            echo "RUN_RESULTS=$RUNNER_TEMP/allure-run-results"
+            echo "SITE=$RUNNER_TEMP/allure-site"
+            echo "STATE=$RUNNER_TEMP/allure-pages-state"
+          } >> "$GITHUB_ENV"
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install Allure 2 CLI
+        run: npm install --global allure-commandline@2.25.0
+      - name: Download available suite artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: suite-*
+          path: ${{ runner.temp }}/allure-run-results
+          merge-multiple: false
+      - name: Restore published reports and separate history
+        shell: bash
+        run: |
+          set -euo pipefail
+          set +e
+          git ls-remote --exit-code --heads origin allure-pages-state >/dev/null
+          branch_status=$?
+          set -e
+          if [[ "$branch_status" -eq 0 ]]; then
+            git fetch origin refs/heads/allure-pages-state:refs/remotes/origin/allure-pages-state
+            git worktree add -B allure-pages-state "$STATE" refs/remotes/origin/allure-pages-state
+          elif [[ "$branch_status" -eq 2 ]]; then
+            git worktree add --detach "$STATE" HEAD
+            git -C "$STATE" checkout --orphan allure-pages-state
+            git -C "$STATE" rm -r -f -q .
+          else
+            echo "Unable to check Allure state branch (exit $branch_status)" >&2
+            exit "$branch_status"
+          fi
+          mkdir -p "$SITE"
+          rsync -a --exclude=.git "$STATE/" "$SITE/"
+      - name: Generate available Allure reports
+        id: site
+        run: python3 backend/scripts/allure_ci.py build-site "$RUN_RESULTS" "$SITE"
+      - name: Save reports and history for next run
+        if: steps.site.outputs.updated == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          rsync -a --delete --exclude=.git "$SITE/" "$STATE/"
+          git -C "$STATE" config user.name 'github-actions[bot]'
+          git -C "$STATE" config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git -C "$STATE" add -A
+          if ! git -C "$STATE" diff --cached --quiet; then
+            git -C "$STATE" commit -m "Update Allure Pages reports for run $GITHUB_RUN_ID"
+            git -C "$STATE" push origin HEAD:refs/heads/allure-pages-state
+          fi
+      - name: Configure GitHub Pages
+        if: steps.site.outputs.updated == 'true'
+        uses: actions/configure-pages@v5
+      - name: Upload Pages artifact
+        if: steps.site.outputs.updated == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ runner.temp }}/allure-site
+      - name: Deploy GitHub Pages
+        if: steps.site.outputs.updated == 'true'
+        id: deploy
+        uses: actions/deploy-pages@v4
+      - name: Report links and test results
+        if: always()
+        shell: bash
+        run: |
+          python3 backend/scripts/allure_ci.py report-summary "$SITE" \
+            '${{ steps.deploy.outputs.page_url }}' \
+            '${{ needs.api-tests.result }}' '${{ needs.ui-tests.result }}' \
+            '${{ needs.kafka-tests.result }}' '${{ steps.site.outputs.suites }}'
