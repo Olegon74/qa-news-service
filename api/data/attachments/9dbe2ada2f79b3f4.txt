@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News fb026d50 Specimen Days","previewText":"Preview 2d07f5f7: Maiores aut maxime vel tempora vel autem sit quis deleniti nisi omnis.","fullText":"Full text 57f96d70. Tempore est aperiam. Iste omnis ea nam dolor. Vitae est omnis velit iure enim. Asperiores saepe dolor accusamus dolores quo veniam perspiciatis. Quis in ab libero inventore non.","author":"QA Author d6de656b"}

@@ -1,0 +1,16 @@
+Status: 201
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 08:48:50 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: {"id":16,"title":"TEST News bd76a1d9 I Know Why the Caged Bird Sings","previewText":"Preview 6ffa2d39: Quisquam officiis at eum molestiae voluptatem eum vitae esse qui et quod dolor.","fullText":"Full text ddd11cbe. Nihil dolor ducimus quia. Vero praesentium quas aut pariatur. Accusantium eveniet ipsum voluptatem nobis. Molestiae et magni suscipit enim et facere. Corporis commodi rerum.","author":"QA Author d36da323","status":"DRAFT","createdAt":"2026-11-15T08:48:50.612103707","updatedAt":"2026-11-15T08:48:50.612103707","publishedAt":null,"archivedAt":null}

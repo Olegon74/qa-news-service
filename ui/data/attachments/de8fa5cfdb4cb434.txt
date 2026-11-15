@@ -1,0 +1,16 @@
+Status: 200
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 08:49:13 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: {"id":3,"title":"TEST News 30eecf39 The Road Less Traveled","previewText":"Preview 9982df99: Delectus quod minus quos animi cupiditate inventore est.","fullText":"Full text ca301e35. Ut quae ea rerum autem explicabo. Fuga sunt odit culpa quia. Ea blanditiis incidunt voluptate dolor. Deserunt sed illum mollitia voluptas est velit.","author":"QA Author da649ea2","status":"ARCHIVED","createdAt":"2026-11-15T08:49:13.085263","updatedAt":"2026-11-15T08:49:13.193289","publishedAt":"2026-11-15T08:49:13.192455","archivedAt":"2026-11-15T08:49:13.291066"}

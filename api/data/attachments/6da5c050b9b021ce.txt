@@ -1,0 +1,16 @@
+Status: 200
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 08:48:50 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: [{"id":11,"title":"TEST News 426c0175 Cabbages and Kings","previewText":"Preview 900eb67e: Sint et assumenda libero voluptas recusandae velit tempora.","fullText":"Full text 1b6fdaa2. Perspiciatis excepturi magni qui sit perferendis dolorum. Expedita architecto mollitia unde facere eveniet et. Voluptatum et unde culpa deleniti. Quibusdam dolorem eius eaque molestias deserunt id. Eligendi et et doloremque alias.","author":"QA Author 40dd943a","status":"DRAFT","createdAt":"2026-11-15T08:48:49.976519","updatedAt":"2026-11-15T08:48:49.976519","publishedAt":null,"archivedAt":null}]

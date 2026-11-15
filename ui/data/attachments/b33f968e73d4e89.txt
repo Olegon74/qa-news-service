@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News fc99353f A Farewell to Arms","previewText":"Preview a0355d82: In numquam esse perspiciatis sed asperiores nihil quis nemo blanditiis sed eius est.","fullText":"Full text 01f6f5ca. Est pariatur voluptatibus consequuntur ipsam vitae omnis fugit. Magni eius mollitia dicta. Quasi sint dicta illum animi. Velit ea fugiat sunt est sed.","author":"QA Author 6e169f02"}

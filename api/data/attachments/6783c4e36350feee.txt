@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News ca09ae1c The Heart Is Deceitful Above All Things","previewText":"Preview 80c7c036: Perferendis aspernatur porro ut nisi quia autem maiores.","fullText":"Full text 261c7e37. Aliquid perferendis repudiandae qui ducimus dolor. Vero accusantium architecto quibusdam aut at. Suscipit voluptate voluptate voluptatibus ab a commodi quia.","author":"QA Author 1b3db2f0"}

@@ -1,0 +1,16 @@
+Status: 200
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 08:48:47 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: {"id":4,"title":"TEST News 156ee4d9 The Waste Land","previewText":"Preview 4044faad: Laudantium quo temporibus maiores cum tempore blanditiis explicabo.","fullText":"Full text f8ad9e4d. Eum officiis autem corporis. Ea omnis ut cupiditate in sit quos occaecati. Quia eligendi adipisci nostrum et. Et laboriosam at. Quo quia consequatur maiores.","author":"QA Author 4c013abc","status":"ARCHIVED","createdAt":"2026-11-15T08:48:47.430104","updatedAt":"2026-11-15T08:48:47.465713","publishedAt":"2026-11-15T08:48:47.46508","archivedAt":"2026-11-15T08:48:47.499487"}

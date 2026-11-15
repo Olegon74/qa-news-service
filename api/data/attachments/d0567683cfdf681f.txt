@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 876c7714 The Man Within","previewText":"Preview 7ceb7c5a: Rerum rerum expedita voluptas tempore recusandae corrupti voluptas qui quasi est.","fullText":"Full text 0390025c. Delectus eveniet tenetur at unde eius. Pariatur ut nam accusamus officiis omnis alias consequatur. Amet architecto facere in voluptatem dolorem deserunt.","author":"QA Author b3838030"}

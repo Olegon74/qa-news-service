@@ -1,0 +1,4 @@
+PUT http://localhost:8080/api/news/22
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"Updated TEST News 0c27e2c9 Jesting Pilate","previewText":"Updated Preview b911a70a: Dolorem debitis et optio voluptas dolores exercitationem enim ut minus esse sequi omnis.","fullText":"Updated Full text 29d9b0ce. Repellat et est qui quos id nisi dolor. Dolores minima repellat sunt. Fugit reiciendis qui. Quo voluptatem cum non nobis. Corporis at ut.","author":"Updated QA Author 702c6d77"}

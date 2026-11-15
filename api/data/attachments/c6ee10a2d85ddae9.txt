@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 1e01c2f7 The Moon by Night","previewText":"Preview 0b1827a7: Ut sint natus et beatae corrupti commodi ut harum commodi neque voluptatem.","fullText":"Full text 1cfa869a. Natus rerum repellendus repellat nostrum molestiae assumenda quidem. Quo odio est quasi eveniet accusantium. Aut sit corporis. Pariatur deserunt non non soluta occaecati et aut. Veniam debitis tenetur voluptas ipsum rerum perspiciatis.","author":"QA Author efbf13f3"}

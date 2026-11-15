@@ -1,0 +1,16 @@
+Status: 201
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 08:48:51 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: {"id":23,"title":"TEST News a3671741 Frequent Hearses","previewText":"Preview 267ef5f9: Sapiente ducimus eius enim laudantium iusto dolore voluptas natus molestias.","fullText":"Full text d5f55678. Dolores officia quia voluptate itaque eum dolorem perspiciatis. Sint hic et officiis. Error enim corporis. Cumque illo voluptas similique praesentium cum est sunt. Quos delectus et esse vel sunt.","author":"QA Author e012931e","status":"DRAFT","createdAt":"2026-11-15T08:48:51.464589155","updatedAt":"2026-11-15T08:48:51.464589155","publishedAt":null,"archivedAt":null}

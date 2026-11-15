@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News d30b5eed For Whom the Bell Tolls","previewText":"Preview ef8e9842: Quam modi aperiam et corrupti nulla atque occaecati placeat quia.","fullText":"Full text 76ae73e8. Animi cupiditate totam tenetur dolorem quia. Omnis molestiae voluptatem culpa soluta nobis. In odio et ex id. Sequi et totam iste non id est.","author":"QA Author 25ddf1d6"}

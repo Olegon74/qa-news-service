@@ -1,0 +1,16 @@
+Status: 201
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 08:49:19 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: {"id":7,"title":"TEST News 3b22aa7b The Grapes of Wrath","previewText":"Preview 989c552c: Corporis aut a reprehenderit dolorum minima et natus numquam voluptatem expedita dignissimos inventore.","fullText":"Full text 0f478101. Quia iste placeat eveniet. Consequatur molestias blanditiis voluptate accusamus dolores aut pariatur. Sed velit distinctio porro.","author":"QA Author 992c0b36","status":"DRAFT","createdAt":"2026-11-15T08:49:19.590073996","updatedAt":"2026-11-15T08:49:19.590073996","publishedAt":null,"archivedAt":null}

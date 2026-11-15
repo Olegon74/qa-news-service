@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 06953392 Specimen Days","previewText":"Preview b8554d24: Adipisci dolorum dolorum eos eum doloribus pariatur tempore ut labore tenetur iure voluptatem.","fullText":"Full text c3cc5500. Eligendi explicabo praesentium ipsam quis in ad. Voluptas quam atque et aut pariatur qui recusandae. Quas expedita amet quia.","author":"QA Author 3ac5881e"}

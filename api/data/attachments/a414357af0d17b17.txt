@@ -1,0 +1,16 @@
+Status: 201
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 08:48:50 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: {"id":12,"title":"TEST News 33f40b88 Those Barren Leaves, Thrones, Dominations","previewText":"Preview 92b11a48: Placeat est fuga quasi fugit rerum a omnis.","fullText":"Full text c85c2ce2. Inventore nostrum deserunt officiis. Ducimus est aut corporis itaque. Cupiditate voluptatem dolorem non.","author":"QA Author 886217a9","status":"DRAFT","createdAt":"2026-11-15T08:48:50.048751183","updatedAt":"2026-11-15T08:48:50.048751183","publishedAt":null,"archivedAt":null}

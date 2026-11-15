@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 80171b53 This Lime Tree Bower","previewText":"Preview db950ff3: Dolores eveniet esse molestias recusandae cupiditate officia omnis.","fullText":"Full text 067d7065. Dolor id quidem rem placeat. Eligendi consequatur et aut qui. Quo consectetur quidem reiciendis optio qui et fuga. Dignissimos voluptas ea quo.","author":"QA Author 1eb0ebf6"}

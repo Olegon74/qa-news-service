@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 156ee4d9 The Waste Land","previewText":"Preview 4044faad: Laudantium quo temporibus maiores cum tempore blanditiis explicabo.","fullText":"Full text f8ad9e4d. Eum officiis autem corporis. Ea omnis ut cupiditate in sit quos occaecati. Quia eligendi adipisci nostrum et. Et laboriosam at. Quo quia consequatur maiores.","author":"QA Author 4c013abc"}

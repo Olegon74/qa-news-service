@@ -1,0 +1,4 @@
+GET http://localhost:8080/api/news/18
+Headers: Accept=*/*
+Content-Type=application/json
+Body: 

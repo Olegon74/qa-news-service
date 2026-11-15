@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA","previewText":"Preview 7156dc00: Et ipsam autem ea laborum aliquam dolores assumenda quo adipisci tenetur est sit.","fullText":"Full text 33b07fee. Velit qui ipsum et deserunt. Quisquam aut aliquam delectus. Sed nam delectus et alias.","author":"QA Author 993b98ff"}

@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"","previewText":"Preview c8ad3763: Rem velit adipisci id occaecati qui aspernatur cum et nulla cupiditate dolorum.","fullText":"Full text 92723dda. Impedit similique magni qui ipsam ut. A asperiores ipsam repellendus amet magnam. Dolores voluptas eaque.","author":"QA Author 75f20577"}

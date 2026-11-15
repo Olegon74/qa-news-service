@@ -1,0 +1,16 @@
+Status: 201
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 08:48:51 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: {"id":22,"title":"TEST News cb73fa87 The Heart Is a Lonely Hunter","previewText":"Preview e0efe49b: Delectus ea ea similique nostrum minus temporibus non.","fullText":"Full text d17e4cd7. Provident corrupti illo expedita. Excepturi magni eaque sit quod dolor voluptatem. Facere optio et et omnis aut. Aut beatae iusto. Suscipit illo dolores doloremque et fugit dolor.","author":"QA Author f6fca1cc","status":"DRAFT","createdAt":"2026-11-15T08:48:51.300310806","updatedAt":"2026-11-15T08:48:51.300310806","publishedAt":null,"archivedAt":null}

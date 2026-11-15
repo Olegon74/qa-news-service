@@ -1,0 +1,16 @@
+Status: 200
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 08:48:51 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: {"id":20,"title":"Updated TEST News bef16234 A Handful of Dust","previewText":"Updated Preview 779ef848: Praesentium est aut quia occaecati velit recusandae eum maxime.","fullText":"Updated Full text b032e0d7. Accusantium ut nulla eos labore aut. Ex cum est ipsa quisquam consequatur. Animi cum sed quod accusamus est repellat aut. Laudantium molestiae in hic voluptates soluta amet. Veritatis eaque fugiat.","author":"Updated QA Author 0fd07773","status":"PUBLISHED","createdAt":"2026-11-15T08:48:51.05741","updatedAt":"2026-11-15T08:48:51.085132","publishedAt":"2026-11-15T08:48:51.084678","archivedAt":null}

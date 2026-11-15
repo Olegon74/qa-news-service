@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News bd76a1d9 I Know Why the Caged Bird Sings","previewText":"Preview 6ffa2d39: Quisquam officiis at eum molestiae voluptatem eum vitae esse qui et quod dolor.","fullText":"Full text ddd11cbe. Nihil dolor ducimus quia. Vero praesentium quas aut pariatur. Accusantium eveniet ipsum voluptatem nobis. Molestiae et magni suscipit enim et facere. Corporis commodi rerum.","author":"QA Author d36da323"}

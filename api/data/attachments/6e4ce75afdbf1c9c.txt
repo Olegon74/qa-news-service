@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 9133abbd Ah, Wilderness!","previewText":"Preview 8d03918e: Accusamus error saepe velit est ipsam deserunt sed.","fullText":"Full text 7cb3a79f. Aut autem laborum enim perferendis. Impedit voluptate nam sit rem nisi eaque. Commodi similique repellat ut facilis nobis.","author":"QA Author f338a251"}

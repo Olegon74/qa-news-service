@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 5ea4424d Antic Hay","previewText":"Preview 17a143ed: Exercitationem reiciendis nesciunt eos aut debitis dolorem mollitia qui in eum sunt.","fullText":"Full text 596e9cbb. Distinctio laudantium vero numquam. Sed modi autem amet voluptatem. Possimus nulla dolor iure.","author":"QA Author 52817c57"}

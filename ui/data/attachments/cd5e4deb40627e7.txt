@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 62a2e01e Look to Windward","previewText":"Preview c1be31f0: Quia repellat eligendi assumenda magnam veritatis est sed consequatur molestiae nihil velit qui.","fullText":"Full text 63bf7ca5. Eius iste molestiae illo qui culpa ipsum occaecati. Distinctio temporibus reprehenderit. Consequuntur est odit.","author":"QA Author a122d00d"}

@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 30eecf39 The Road Less Traveled","previewText":"Preview 9982df99: Delectus quod minus quos animi cupiditate inventore est.","fullText":"Full text ca301e35. Ut quae ea rerum autem explicabo. Fuga sunt odit culpa quia. Ea blanditiis incidunt voluptate dolor. Deserunt sed illum mollitia voluptas est velit.","author":"QA Author da649ea2"}

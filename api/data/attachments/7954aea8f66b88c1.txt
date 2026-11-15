@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News c4b10477 Great Work of Time","previewText":"Preview 97332f83: Ut esse distinctio consequatur exercitationem quibusdam esse dolores iure doloribus ipsa.","fullText":"Full text 351da3d3. Minima eos dolores aliquid aut asperiores accusantium est. Hic eum sapiente quasi dolor. Qui sed occaecati voluptatibus fugit.","author":"QA Author e3d9e23e"}

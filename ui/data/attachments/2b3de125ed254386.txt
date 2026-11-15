@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 965a1f39 The Heart Is a Lonely Hunter","previewText":"Preview 4a2a7562: Aut nesciunt neque qui perspiciatis fugit facere et voluptatem repellat corrupti.","fullText":"Full text 09457273. Impedit suscipit qui et perferendis sit cupiditate est. Dolorem cumque esse corrupti esse sint. Magnam voluptatem est necessitatibus dolorem vitae ullam. Illo quidem nulla.","author":"QA Author 69cbd3e3"}

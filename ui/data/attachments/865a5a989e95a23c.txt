@@ -1,0 +1,16 @@
+Status: 200
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 08:49:07 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: {"id":2,"title":"TEST News 965a1f39 The Heart Is a Lonely Hunter","previewText":"Preview 4a2a7562: Aut nesciunt neque qui perspiciatis fugit facere et voluptatem repellat corrupti.","fullText":"Full text 09457273. Impedit suscipit qui et perferendis sit cupiditate est. Dolorem cumque esse corrupti esse sint. Magnam voluptatem est necessitatibus dolorem vitae ullam. Illo quidem nulla.","author":"QA Author 69cbd3e3","status":"PUBLISHED","createdAt":"2026-11-15T08:49:07.331505","updatedAt":"2026-11-15T08:49:07.331505","publishedAt":"2026-11-15T08:49:07.526278","archivedAt":null}

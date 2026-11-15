@@ -1,0 +1,4 @@
+PUT http://localhost:8080/api/news/21
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"Updated TEST News 615a057f The Golden Apples of the Sun","previewText":"Updated Preview f06d6957: Magnam perferendis qui quis quo minima voluptas consequatur rerum sed.","fullText":"Updated Full text 145a0156. Aspernatur quos laboriosam. Ullam voluptas inventore. Nisi dignissimos quaerat sunt perspiciatis eum. Distinctio molestiae quos maxime sequi.","author":"Updated QA Author c1585607"}
