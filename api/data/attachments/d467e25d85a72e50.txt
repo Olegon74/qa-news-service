@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 96fff240 The Mirror Crack'd from Side to Side","previewText":"Preview 3a81da4c: Laboriosam omnis quasi similique sed quam aut atque.","fullText":"Full text b6a6d94b. Earum eius ut. Consequatur dolor omnis error omnis labore. Aliquid qui et quos.","author":"QA Author d310089c"}

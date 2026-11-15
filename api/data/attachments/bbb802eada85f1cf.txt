@@ -1,0 +1,16 @@
+Status: 201
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 09:15:54 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: {"id":10,"title":"TEST News 879b6153 To a God Unknown","previewText":"Preview bf427ade: Harum commodi quos consequuntur provident voluptas ut omnis quibusdam vitae optio perspiciatis rem.","fullText":"Full text aeae449d. Labore provident quibusdam praesentium doloremque consequuntur. Rerum quis optio ducimus laborum dolores. Nostrum sit aut optio qui. Nulla labore qui voluptas. Voluptas totam impedit.","author":"QA Author d97c3616","status":"DRAFT","createdAt":"2026-11-15T09:15:54.148687898","updatedAt":"2026-11-15T09:15:54.148687898","publishedAt":null,"archivedAt":null}

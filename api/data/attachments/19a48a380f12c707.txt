@@ -1,0 +1,16 @@
+Status: 200
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 09:15:55 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: {"id":20,"title":"TEST News ca5a2c44 Unweaving the Rainbow","previewText":"Preview 54f52cb6: Velit inventore aut et dolor qui quis libero.","fullText":"Full text f3bada0f. Nam magni molestiae provident. Ratione excepturi non. Eaque nobis fugiat sunt odit est commodi dolor. Suscipit reprehenderit qui ut. Ut expedita a expedita est quod id a.","author":"QA Author f5993900","status":"PUBLISHED","createdAt":"2026-11-15T09:15:55.112732","updatedAt":"2026-11-15T09:15:55.112732","publishedAt":"2026-11-15T09:15:55.126181","archivedAt":null}

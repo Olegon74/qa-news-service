@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"","previewText":"Preview 4ecafdf5: Voluptatem ut et ipsa omnis expedita animi quia magnam quasi reiciendis fugit ratione.","fullText":"Full text c43807ca. Praesentium ea rerum numquam dolore a aspernatur. Cupiditate quasi aut. Labore nobis corrupti voluptates. Assumenda ex distinctio.","author":"QA Author 4f9dc201"}

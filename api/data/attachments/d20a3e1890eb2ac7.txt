@@ -1,0 +1,4 @@
+PUT http://localhost:8080/api/news/22
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"Updated TEST News 11e15f1b Moab Is My Washpot","previewText":"Updated Preview b5445f5b: Dolore voluptas ipsum et itaque aperiam unde vero est ullam.","fullText":"Updated Full text c9bdbeec. Et fuga ab ab et natus. Aspernatur consequatur enim sint aliquam libero cumque laudantium. Tenetur iure suscipit quos facilis. At aut qui mollitia harum sed delectus. Esse maxime dicta ut.","author":"Updated QA Author 8a7e2039"}

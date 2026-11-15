@@ -1,0 +1,16 @@
+Status: 200
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 09:15:55 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: {"id":20,"title":"Updated TEST News 494fcf54 The Sun Also Rises","previewText":"Updated Preview e0ec3ef4: Accusantium sint culpa autem rem rerum quasi numquam consectetur velit quidem non.","fullText":"Updated Full text 80f5b612. Omnis corporis eos et voluptate eos saepe perferendis. Nihil porro architecto. Maiores aut velit et et. Ipsum numquam corporis soluta.","author":"Updated QA Author 3b44d2b5","status":"PUBLISHED","createdAt":"2026-11-15T09:15:55.112732","updatedAt":"2026-11-15T09:15:55.126467","publishedAt":"2026-11-15T09:15:55.126181","archivedAt":null}

@@ -1,0 +1,4 @@
+PUT http://localhost:8080/api/news/23
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"Updated TEST News 94ab13b9 Absalom, Absalom!","previewText":"Updated Preview 79a8011c: Odio inventore voluptatum velit molestiae aut et mollitia ea nihil dolores.","fullText":"Updated Full text 34f1a7c7. Mollitia expedita itaque aspernatur. Omnis porro cum voluptas nesciunt omnis dolor. In nulla pariatur modi consequuntur velit modi. Id ea tenetur.","author":"Updated QA Author d8abb72c"}

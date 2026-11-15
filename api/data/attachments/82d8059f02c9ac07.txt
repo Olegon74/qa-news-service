@@ -1,0 +1,16 @@
+Status: 200
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 09:15:54 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: {"id":17,"title":"TEST News 028f36e4 When the Green Woods Laugh","previewText":"Preview 6c8ec2a1: Nihil distinctio molestiae laboriosam et in et ipsa excepturi accusamus.","fullText":"Full text bc826ab4. In veritatis aut veniam asperiores ducimus perspiciatis. Itaque non voluptatibus aut hic. Modi est architecto aspernatur et eos adipisci placeat. Sit harum omnis. Deleniti omnis fugiat facere autem.","author":"QA Author 06205068","status":"ARCHIVED","createdAt":"2026-11-15T09:15:54.710907","updatedAt":"2026-11-15T09:15:54.727095","publishedAt":"2026-11-15T09:15:54.726675","archivedAt":"2026-11-15T09:15:54.833878"}

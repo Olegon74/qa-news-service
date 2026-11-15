@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 879b6153 To a God Unknown","previewText":"Preview bf427ade: Harum commodi quos consequuntur provident voluptas ut omnis quibusdam vitae optio perspiciatis rem.","fullText":"Full text aeae449d. Labore provident quibusdam praesentium doloremque consequuntur. Rerum quis optio ducimus laborum dolores. Nostrum sit aut optio qui. Nulla labore qui voluptas. Voluptas totam impedit.","author":"QA Author d97c3616"}

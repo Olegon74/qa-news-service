@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 305a2331 Some Buried Caesar","previewText":"Preview 202b4787: Id perspiciatis omnis accusantium velit maxime aliquid pariatur enim.","fullText":"Full text 023b5114. Aut quia nihil ad. Cum alias id. Distinctio mollitia temporibus nobis. In soluta dolorem pariatur sunt sint ad.","author":"QA Author 8c7dc0b3"}

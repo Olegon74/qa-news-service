@@ -1,0 +1,16 @@
+Status: 201
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 09:15:53 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: {"id":8,"title":"TEST News 5e34aca2 Dying of the Light","previewText":"Preview 027995b9: Debitis quo ab harum praesentium debitis pariatur qui corporis ex.","fullText":"Full text a5f6f831. Est aut est et. Repudiandae est quasi cum optio porro. Et aut eos quidem officiis animi quo quo. Qui blanditiis nesciunt qui accusantium pariatur odio reiciendis. Quod perferendis veritatis et sunt.","author":"QA Author 5e1ae49d","status":"DRAFT","createdAt":"2026-11-15T09:15:53.941376329","updatedAt":"2026-11-15T09:15:53.941376329","publishedAt":null,"archivedAt":null}

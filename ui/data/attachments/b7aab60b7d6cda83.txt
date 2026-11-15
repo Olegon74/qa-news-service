@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 1ab72952 Taming a Sea Horse","previewText":"Preview 58d9a3d0: Ducimus rerum alias ut nulla in dolore ad iure autem corrupti.","fullText":"Full text 490f4942. Tempore esse eligendi illo ut sequi. Sit quidem porro vel vitae ratione. Qui facere dolorem aliquam. Exercitationem omnis rerum voluptas.","author":"QA Author 45848846"}

@@ -1,4 +1,0 @@
-POST http://localhost:8080/api/news
-Headers: Accept=*/*
-Content-Type=application/json
-Body: {"title":"TEST News adfa6997 If Not Now, When?","previewText":"Preview df25a19a: Ipsa et quis voluptatem id quis non velit et aliquid omnis corporis.","fullText":"Full text 877290b1. Ut enim ad blanditiis autem amet. Quam nihil atque eos quis. Ratione quia consequuntur et necessitatibus magnam. Asperiores dicta veniam et.","author":"QA Author dce942a2"}

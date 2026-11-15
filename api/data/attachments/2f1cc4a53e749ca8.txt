@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 558c4804 Recalled to Life","previewText":"","fullText":"Full text 3275c97c. A voluptatem expedita alias. Dolores quia numquam laborum vel. Saepe quis voluptas veniam. Aut et qui et maxime. Quia corrupti maiores in quam consequatur.","author":"QA Author cf71e62f"}

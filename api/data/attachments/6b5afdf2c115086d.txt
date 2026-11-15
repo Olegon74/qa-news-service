@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News c8738ce1 Blood's a Rover","previewText":"Preview afc6fe92: Quaerat sed quibusdam voluptatem impedit consequuntur similique sed voluptatem.","fullText":"Full text fe78f591. Omnis illo at corrupti expedita laudantium sit. Omnis omnis minus quo consequatur. Consectetur adipisci harum doloribus eligendi aut ratione doloremque.","author":""}

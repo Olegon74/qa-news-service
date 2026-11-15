@@ -1,0 +1,16 @@
+Status: 201
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 09:15:50 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: {"id":1,"title":"TEST News 76ff932f In Dubious Battle","previewText":"Preview d180a00a: Voluptates nostrum perferendis quis minima possimus iusto saepe aut dolore ut.","fullText":"Full text 366a239c. Magni ea ipsa quas asperiores. Accusantium vitae aut non. Quod temporibus a repellat. Unde quibusdam qui. At ab qui accusamus optio eum excepturi.","author":"QA Author ee313a7f","status":"DRAFT","createdAt":"2026-11-15T09:15:50.081519109","updatedAt":"2026-11-15T09:15:50.081519109","publishedAt":null,"archivedAt":null}

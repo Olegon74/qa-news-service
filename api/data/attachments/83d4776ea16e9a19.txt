@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 2e5a5dd1 Waiting for the Barbarians","previewText":"Preview 19d58713: Qui sunt laudantium ea minima in inventore ullam tenetur.","fullText":"Full text 9d09bb28. Quas voluptatem dolorem dolor qui. Quidem vel ut doloribus est. Et explicabo et. Qui perspiciatis autem laudantium eos eligendi tempore.","author":"QA Author f156e93a"}

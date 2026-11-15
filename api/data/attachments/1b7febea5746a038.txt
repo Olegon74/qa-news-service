@@ -1,4 +1,0 @@
-POST http://localhost:8080/api/news
-Headers: Accept=*/*
-Content-Type=application/json
-Body: {"title":"TEST News 33f40b88 Those Barren Leaves, Thrones, Dominations","previewText":"Preview 92b11a48: Placeat est fuga quasi fugit rerum a omnis.","fullText":"Full text c85c2ce2. Inventore nostrum deserunt officiis. Ducimus est aut corporis itaque. Cupiditate voluptatem dolorem non.","author":"QA Author 886217a9"}

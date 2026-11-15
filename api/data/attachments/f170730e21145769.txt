@@ -1,0 +1,16 @@
+Status: 201
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 09:15:54 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: {"id":9,"title":"TEST News 0e0340ff Precious Bane","previewText":"Preview 52bb0389: Consequuntur minima odio et at distinctio velit assumenda officiis omnis quam.","fullText":"Full text a6a42e0a. Optio necessitatibus explicabo. Amet ut est. Nihil ut ipsa aut quis et necessitatibus.","author":"QA Author dd390e31","status":"DRAFT","createdAt":"2026-11-15T09:15:54.097624478","updatedAt":"2026-11-15T09:15:54.097624478","publishedAt":null,"archivedAt":null}

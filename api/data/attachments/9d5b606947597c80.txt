@@ -1,4 +1,0 @@
-POST http://localhost:8080/api/news
-Headers: Accept=*/*
-Content-Type=application/json
-Body: {"title":"TEST News 057f2411 The Needle's Eye","previewText":"Preview 9073cf0a: Qui exercitationem autem optio nihil natus quidem molestias ad.","fullText":"Full text a310e65a. Itaque ipsa quia laborum aut et. Minus adipisci vitae consequatur sunt omnis animi sed. Quae quae sequi alias natus qui voluptas. Ut sed repellat non culpa eos ratione sit. Aperiam alias nemo totam ut tempora voluptas.","author":"QA Author 444d89b1"}

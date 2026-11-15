@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News ca5a2c44 Unweaving the Rainbow","previewText":"Preview 54f52cb6: Velit inventore aut et dolor qui quis libero.","fullText":"Full text f3bada0f. Nam magni molestiae provident. Ratione excepturi non. Eaque nobis fugiat sunt odit est commodi dolor. Suscipit reprehenderit qui ut. Ut expedita a expedita est quod id a.","author":"QA Author f5993900"}

@@ -1,0 +1,16 @@
+Status: 201
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 09:15:54 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: {"id":15,"title":"TEST News f71b6ff2 A Scanner Darkly","previewText":"Preview 2e3b27cf: Rerum explicabo sit repudiandae voluptas quia dolores est provident assumenda ut quasi non.","fullText":"Full text 0b564f0e. Delectus odit accusantium ut quos cum. Tempora nostrum nobis consequatur sequi quia molestias. In maiores minima ea aut consequatur voluptate. Quas alias harum quo voluptate sit quia doloremque.","author":"QA Author 4195da3e","status":"DRAFT","createdAt":"2026-11-15T09:15:54.601720835","updatedAt":"2026-11-15T09:15:54.601720835","publishedAt":null,"archivedAt":null}

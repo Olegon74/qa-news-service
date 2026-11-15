@@ -1,4 +1,0 @@
-POST http://localhost:8080/api/news
-Headers: Accept=*/*
-Content-Type=application/json
-Body: {"title":"TEST News 426c0175 Cabbages and Kings","previewText":"Preview 900eb67e: Sint et assumenda libero voluptas recusandae velit tempora.","fullText":"Full text 1b6fdaa2. Perspiciatis excepturi magni qui sit perferendis dolorum. Expedita architecto mollitia unde facere eveniet et. Voluptatum et unde culpa deleniti. Quibusdam dolorem eius eaque molestias deserunt id. Eligendi et et doloremque alias.","author":"QA Author 40dd943a"}

@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News a7a2d0b1 Beneath the Bleeding","previewText":"Preview e729c364: Magnam molestias aliquid quos sit natus dicta exercitationem magni quae repellendus sit.","fullText":"Full text a2dba1d6. Sed error molestias et sint accusamus. Pariatur labore nihil rerum dignissimos repellendus. Saepe pariatur odit quo. Quod dolor neque similique iure. Repellendus et ea quia blanditiis repellat.","author":"QA Author 5e798e1f"}

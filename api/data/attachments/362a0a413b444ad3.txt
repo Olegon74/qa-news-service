@@ -1,0 +1,16 @@
+Status: 200
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 09:15:54 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: [{"id":11,"title":"TEST News 8f053884 In Dubious Battle","previewText":"Preview e10f45bb: Est et et consequuntur architecto assumenda quia neque officia culpa et impedit ut.","fullText":"Full text 1216d734. Qui blanditiis facere ratione expedita ut est. Voluptate ullam perspiciatis et alias officiis aliquid. Ea voluptas cumque est. Consectetur sequi repudiandae cupiditate aut.","author":"QA Author 9c05c8c8","status":"DRAFT","createdAt":"2026-11-15T09:15:54.2602","updatedAt":"2026-11-15T09:15:54.2602","publishedAt":null,"archivedAt":null}]

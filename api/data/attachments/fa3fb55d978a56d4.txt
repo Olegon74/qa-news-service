@@ -1,0 +1,16 @@
+Status: 201
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 09:15:53 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: {"id":5,"title":"TEST News 81e18403 In Death Ground","previewText":"Preview 489c27de: Non repudiandae minus necessitatibus tempore nesciunt enim adipisci earum rem nihil minus labore.","fullText":"Full text 4a6b4698. Nam et quod eum. Unde asperiores hic minus commodi. Odio illo consequatur officia reprehenderit saepe quis. Est sit qui.","author":"QA Author 48aa8254","status":"DRAFT","createdAt":"2026-11-15T09:15:53.252415992","updatedAt":"2026-11-15T09:15:53.252415992","publishedAt":null,"archivedAt":null}

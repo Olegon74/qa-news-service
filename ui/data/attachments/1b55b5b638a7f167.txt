@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 150e9f16 Edna O'Brien","previewText":"Preview 73d4ca4a: Sequi enim illo ea quisquam non distinctio vel quae quaerat.","fullText":"Full text bc7bad4d. Nulla officiis voluptatem et ducimus. Sunt eius ratione velit animi voluptate eligendi perspiciatis. Magni unde unde rerum quis laudantium. Esse dolores aliquam vel nulla. Dolorem neque vitae quae est ea accusamus.","author":"QA Author b85543da"}

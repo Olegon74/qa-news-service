@@ -1,4 +1,0 @@
-PUT http://localhost:8080/api/news/20
-Headers: Accept=*/*
-Content-Type=application/json
-Body: {"title":"Updated TEST News bef16234 A Handful of Dust","previewText":"Updated Preview 779ef848: Praesentium est aut quia occaecati velit recusandae eum maxime.","fullText":"Updated Full text b032e0d7. Accusantium ut nulla eos labore aut. Ex cum est ipsa quisquam consequatur. Animi cum sed quod accusamus est repellat aut. Laudantium molestiae in hic voluptates soluta amet. Veritatis eaque fugiat.","author":"Updated QA Author 0fd07773"}

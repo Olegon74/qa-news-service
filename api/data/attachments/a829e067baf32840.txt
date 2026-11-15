@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News e603270c The Way Through the Woods","previewText":"Preview 2fa6c133: Ducimus eveniet qui est quasi aut magnam quis temporibus commodi impedit eius.","fullText":"Full text 62c53a63. Exercitationem enim deserunt qui quia ut. Necessitatibus fuga velit aut nostrum. Iste ipsum est iusto eius eum ullam. Vitae qui in officia perferendis aut.","author":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"}

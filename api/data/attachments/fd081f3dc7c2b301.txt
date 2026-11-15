@@ -1,0 +1,16 @@
+Status: 201
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 09:15:53 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: {"id":6,"title":"TEST News 2db81f30 Noli Me Tangere","previewText":"Preview 2dabbd5c: Libero incidunt dolores ex numquam aut quos qui illo et debitis aut voluptatem.","fullText":"Full text c639df4a. Sit optio dolor tenetur quo consectetur occaecati voluptatem. Et quam nostrum ut perspiciatis nobis. Fuga nostrum qui soluta soluta quae.","author":"QA Author 1f6fafd3","status":"DRAFT","createdAt":"2026-11-15T09:15:53.571597374","updatedAt":"2026-11-15T09:15:53.571597374","publishedAt":null,"archivedAt":null}

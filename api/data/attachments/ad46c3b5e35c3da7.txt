@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 1ed6434e To a God Unknown","previewText":"Preview bf3074a0: Nihil ipsa qui aut possimus ea voluptatem pariatur et explicabo.","fullText":"","author":"QA Author 6063b582"}

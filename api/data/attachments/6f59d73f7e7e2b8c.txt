@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News f67ad81b Antic Hay","previewText":"Preview fb1067d6: Ipsum corrupti officiis ducimus in rem vel sed enim aspernatur maxime nihil.","fullText":"Full text 4b032d76. Iste odio magni. Eaque earum et. Ut praesentium ullam architecto quo et aut. Error aliquam in dignissimos magnam reprehenderit.","author":"QA Author 0cdb5569"}

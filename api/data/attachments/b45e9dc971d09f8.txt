@@ -1,4 +1,0 @@
-POST http://localhost:8080/api/news
-Headers: Accept=*/*
-Content-Type=application/json
-Body: {"title":"TEST News cb73fa87 The Heart Is a Lonely Hunter","previewText":"Preview e0efe49b: Delectus ea ea similique nostrum minus temporibus non.","fullText":"Full text d17e4cd7. Provident corrupti illo expedita. Excepturi magni eaque sit quod dolor voluptatem. Facere optio et et omnis aut. Aut beatae iusto. Suscipit illo dolores doloremque et fugit dolor.","author":"QA Author f6fca1cc"}

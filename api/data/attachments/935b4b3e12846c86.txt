@@ -1,4 +1,0 @@
-POST http://localhost:8080/api/news
-Headers: Accept=*/*
-Content-Type=application/json
-Body: {"title":"TEST News 23deb038 Some Buried Caesar","previewText":"","fullText":"Full text d4e11661. Sapiente dolor vel atque quis porro eos est. Repellat nisi minima. Excepturi repellat est praesentium et rerum quis.","author":"QA Author 1c31cc1f"}

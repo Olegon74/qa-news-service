@@ -1,0 +1,16 @@
+Status: 200
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 09:15:53 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: {"id":7,"title":"TEST News 8589615a The Grapes of Wrath","previewText":"Preview f326db86: Est officiis quia maiores et nisi quae repellendus quos eos modi provident.","fullText":"Full text d2f34652. Quae perferendis saepe non similique veniam. Dolores at iure velit iste autem. Neque repudiandae nemo saepe soluta quia autem. In sunt sit earum quidem beatae.","author":"QA Author f58f62dd","status":"PUBLISHED","createdAt":"2026-11-15T09:15:53.863465","updatedAt":"2026-11-15T09:15:53.863465","publishedAt":"2026-11-15T09:15:53.883596","archivedAt":null}

@@ -1,4 +1,0 @@
-POST http://localhost:8080/api/news
-Headers: Accept=*/*
-Content-Type=application/json
-Body: {"title":"TEST News b14e116f Little Hands Clapping","previewText":"Preview d2c7d23b: Fugiat quis voluptas dolor itaque ut doloribus voluptatem eaque culpa earum itaque.","fullText":"Full text aae5c1cd. Perferendis voluptas accusantium iusto. Velit voluptatibus doloribus dolor tenetur eum enim. Impedit eos quasi odit eum sint. Eum sit et. Voluptatibus provident magnam consequatur molestiae natus perspiciatis.","author":"QA Author a29fa699"}

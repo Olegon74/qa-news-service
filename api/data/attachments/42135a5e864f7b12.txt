@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 81e18403 In Death Ground","previewText":"Preview 489c27de: Non repudiandae minus necessitatibus tempore nesciunt enim adipisci earum rem nihil minus labore.","fullText":"Full text 4a6b4698. Nam et quod eum. Unde asperiores hic minus commodi. Odio illo consequatur officia reprehenderit saepe quis. Est sit qui.","author":"QA Author 48aa8254"}

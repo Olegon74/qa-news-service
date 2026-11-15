@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 028f36e4 When the Green Woods Laugh","previewText":"Preview 6c8ec2a1: Nihil distinctio molestiae laboriosam et in et ipsa excepturi accusamus.","fullText":"Full text bc826ab4. In veritatis aut veniam asperiores ducimus perspiciatis. Itaque non voluptatibus aut hic. Modi est architecto aspernatur et eos adipisci placeat. Sit harum omnis. Deleniti omnis fugiat facere autem.","author":"QA Author 06205068"}

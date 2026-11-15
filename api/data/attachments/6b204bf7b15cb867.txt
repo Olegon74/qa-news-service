@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News c57f30aa The Proper Study","previewText":"Preview 9044603d: Sit voluptate et illum quas nobis quia molestiae qui id eius commodi.","fullText":"Full text d028a03f. Modi omnis eos quae. Tenetur labore quis. Et et distinctio dolor. Nesciunt ipsa sint totam officia vitae voluptatem. Doloremque aspernatur cumque quas laborum minima.","author":"QA Author 08cf9df2"}

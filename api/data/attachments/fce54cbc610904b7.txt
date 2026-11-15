@@ -1,4 +1,0 @@
-POST http://localhost:8080/api/news
-Headers: Accept=*/*
-Content-Type=application/json
-Body: {"title":"TEST News f106e083 His Dark Materials","previewText":"Preview da232cf6: Beatae nobis iste voluptatem maiores nemo adipisci aut labore.","fullText":"Full text 180ff0ff. Ut repellat quaerat. Consectetur dignissimos officia molestiae. Id illum odio velit. Qui sit neque incidunt aspernatur culpa dolorum sed. Dolore adipisci mollitia odit dolores.","author":"QA Author 46b40bd6"}

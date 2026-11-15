@@ -1,4 +1,0 @@
-POST http://localhost:8080/api/news
-Headers: Accept=*/*
-Content-Type=application/json
-Body: {"title":"TEST News 2bc6779d What's Become of Waring","previewText":"Preview 599df00d: Officia culpa quis vero quia eum architecto laboriosam ad quasi occaecati blanditiis.","fullText":"Full text 61a1671d. Unde dicta quia voluptate nihil temporibus dolore ea. Est tenetur eum sapiente animi at sit. Temporibus numquam quaerat. Tempora unde magni rerum sequi sit aperiam eum.","author":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"}

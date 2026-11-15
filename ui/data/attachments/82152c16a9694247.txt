@@ -1,4 +1,0 @@
-POST http://localhost:8080/api/news/3/archive
-Headers: Accept=*/*
-Content-Type=application/json
-Body: 

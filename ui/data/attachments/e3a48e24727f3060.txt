@@ -1,4 +1,0 @@
-POST http://localhost:8080/api/news
-Headers: Accept=*/*
-Content-Type=application/json
-Body: {"title":"TEST News 140d68a3 The Parliament of Man","previewText":"Preview c975d215: Architecto maiores velit quis unde officia nulla maiores eaque pariatur maiores quia.","fullText":"Full text 59c2993c. Culpa voluptas possimus dolores iusto. Sit quis libero ut quis natus voluptatem voluptatem. Ea ad est ullam non ipsum sequi quibusdam.","author":"QA Author 26139904"}

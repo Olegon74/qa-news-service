@@ -1,0 +1,9 @@
+{
+  "eventId" : "12600e6d-0f05-4017-b34b-bb216cf9fee2",
+  "eventType" : "NEWS_ARCHIVED",
+  "newsId" : 2,
+  "title" : "Kafka integration e29a58b1-0e5b-4272-9a5e-92162550b606",
+  "status" : "ARCHIVED",
+  "occurredAt" : "2026-11-15T09:14:24.608153507Z",
+  "archivedAt" : "2026-11-15T09:14:24.608010Z"
+}

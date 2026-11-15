@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 532aa135 A Darkling Plain","previewText":"Preview d01dd4a0: Et omnis illo corrupti voluptate voluptatem officia nisi sed perspiciatis.","fullText":"Full text c641be33. Ipsa officia ad odio repellendus corrupti. Commodi mollitia quia minima rem. Corrupti rerum pariatur qui nam. Sed vero tenetur.","author":"QA Author 21350ba4"}

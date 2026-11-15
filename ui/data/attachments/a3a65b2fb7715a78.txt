@@ -1,0 +1,16 @@
+Status: 201
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 09:15:50 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: {"id":2,"title":"TEST News 150e9f16 Edna O'Brien","previewText":"Preview 73d4ca4a: Sequi enim illo ea quisquam non distinctio vel quae quaerat.","fullText":"Full text bc7bad4d. Nulla officiis voluptatem et ducimus. Sunt eius ratione velit animi voluptate eligendi perspiciatis. Magni unde unde rerum quis laudantium. Esse dolores aliquam vel nulla. Dolorem neque vitae quae est ea accusamus.","author":"QA Author b85543da","status":"DRAFT","createdAt":"2026-11-15T09:15:50.111590546","updatedAt":"2026-11-15T09:15:50.111590546","publishedAt":null,"archivedAt":null}

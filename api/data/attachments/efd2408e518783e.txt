@@ -1,0 +1,16 @@
+Status: 201
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 09:15:55 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: {"id":22,"title":"TEST News 532aa135 A Darkling Plain","previewText":"Preview d01dd4a0: Et omnis illo corrupti voluptate voluptatem officia nisi sed perspiciatis.","fullText":"Full text c641be33. Ipsa officia ad odio repellendus corrupti. Commodi mollitia quia minima rem. Corrupti rerum pariatur qui nam. Sed vero tenetur.","author":"QA Author 21350ba4","status":"DRAFT","createdAt":"2026-11-15T09:15:55.271005218","updatedAt":"2026-11-15T09:15:55.271005218","publishedAt":null,"archivedAt":null}

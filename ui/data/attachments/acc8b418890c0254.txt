@@ -1,0 +1,16 @@
+Status: 200
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 09:16:02 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: [{"id":4,"title":"TEST News 305a2331 Some Buried Caesar","previewText":"Preview 202b4787: Id perspiciatis omnis accusantium velit maxime aliquid pariatur enim.","fullText":"Full text 023b5114. Aut quia nihil ad. Cum alias id. Distinctio mollitia temporibus nobis. In soluta dolorem pariatur sunt sint ad.","author":"QA Author 8c7dc0b3","status":"ARCHIVED","createdAt":"2026-11-15T09:15:58.708892","updatedAt":"2026-11-15T09:15:58.873271","publishedAt":"2026-11-15T09:15:58.772572","archivedAt":"2026-11-15T09:15:58.870648"},{"id":5,"title":"TEST News e4de679d The Other Side of Silence","previewText":"Preview 70869e63: Rerum et dolores necessitatibus saepe molestiae veritatis voluptatibus.","fullText":"Full text b1fd49ea. Aut explicabo quasi et qui. Sed dicta est. Est odit ea et. Non et quo repellat sequi consequatur. Tempora recusandae esse.","author":"QA Author 6f066014","status":"DRAFT","createdAt":"2026-11-15T09:16:01.909816","updatedAt":"2026-11-15T09:16:01.909816","publishedAt":null,"archivedAt":null},{"id":6,"title":"TEST News 66b098d6 To Your Scattered Bodies Go","previewText":"Preview ff35ec11: Deserunt minus quibusdam qui sed corporis veritatis sapiente repellat aperiam iste in.","fullText":"Full text 20b29653. Tempora ex a ut magnam nihil ex rerum. Earum accusamus numquam nobis cupiditate harum ipsum et. Voluptas rerum fugit amet enim perferendis sed.","author":"QA Author e0d54874","status":"DRAFT","createdAt":"2026-11-15T09:16:02.391857","updatedAt":"2026-11-15T09:16:02.391857","publishedAt":null,"archivedAt":null}]

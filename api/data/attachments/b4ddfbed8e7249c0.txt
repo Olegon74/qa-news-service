@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 5e34aca2 Dying of the Light","previewText":"Preview 027995b9: Debitis quo ab harum praesentium debitis pariatur qui corporis ex.","fullText":"Full text a5f6f831. Est aut est et. Repudiandae est quasi cum optio porro. Et aut eos quidem officiis animi quo quo. Qui blanditiis nesciunt qui accusantium pariatur odio reiciendis. Quod perferendis veritatis et sunt.","author":"QA Author 5e1ae49d"}

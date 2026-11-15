@@ -1,0 +1,16 @@
+Status: 201
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 09:15:55 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: {"id":19,"title":"TEST News 96fff240 The Mirror Crack'd from Side to Side","previewText":"Preview 3a81da4c: Laboriosam omnis quasi similique sed quam aut atque.","fullText":"Full text b6a6d94b. Earum eius ut. Consequatur dolor omnis error omnis labore. Aliquid qui et quos.","author":"QA Author d310089c","status":"DRAFT","createdAt":"2026-11-15T09:15:54.929031883","updatedAt":"2026-11-15T09:15:54.929031883","publishedAt":null,"archivedAt":null}

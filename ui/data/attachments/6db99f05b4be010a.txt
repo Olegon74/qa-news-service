@@ -1,0 +1,16 @@
+Status: 200
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 09:15:58 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: {"id":4,"title":"TEST News 305a2331 Some Buried Caesar","previewText":"Preview 202b4787: Id perspiciatis omnis accusantium velit maxime aliquid pariatur enim.","fullText":"Full text 023b5114. Aut quia nihil ad. Cum alias id. Distinctio mollitia temporibus nobis. In soluta dolorem pariatur sunt sint ad.","author":"QA Author 8c7dc0b3","status":"ARCHIVED","createdAt":"2026-11-15T09:15:58.708892","updatedAt":"2026-11-15T09:15:58.77306","publishedAt":"2026-11-15T09:15:58.772572","archivedAt":"2026-11-15T09:15:58.870648"}

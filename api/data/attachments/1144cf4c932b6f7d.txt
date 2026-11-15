@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 8589615a The Grapes of Wrath","previewText":"Preview f326db86: Est officiis quia maiores et nisi quae repellendus quos eos modi provident.","fullText":"Full text d2f34652. Quae perferendis saepe non similique veniam. Dolores at iure velit iste autem. Neque repudiandae nemo saepe soluta quia autem. In sunt sit earum quidem beatae.","author":"QA Author f58f62dd"}

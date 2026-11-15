@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 12efeca8 The Wives of Bath","previewText":"Preview ead6fc75: Nemo est voluptas pariatur rerum vel ipsam inventore perferendis voluptatem.","fullText":"Full text 091ea00c. Repudiandae commodi iste. Culpa ut occaecati sed minima fugit aut quidem. Sint beatae et fugit tempore. Voluptatem similique voluptatum fuga in. A minus tempora repudiandae nam deleniti.","author":"QA Author 80228c15"}

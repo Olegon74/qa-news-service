@@ -1,4 +1,0 @@
-PUT http://localhost:8080/api/news/23
-Headers: Accept=*/*
-Content-Type=application/json
-Body: {"title":"Updated TEST News e8160e31 No Longer at Ease","previewText":"Updated Preview 44f92df4: Autem incidunt fuga neque repellendus soluta laboriosam magnam aut necessitatibus ad.","fullText":"Updated Full text 1ca525d4. Temporibus neque aut. Omnis et eum nulla. Neque ratione est id libero facilis. Perspiciatis ut mollitia. Voluptatem molestiae quos aut non quas.","author":"Updated QA Author a876d234"}

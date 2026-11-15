@@ -1,0 +1,4 @@
+PUT http://localhost:8080/api/news/21
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"Updated TEST News 1fcf37e3 Shall not Perish","previewText":"Updated Preview cbf658ac: Ea nihil consequuntur a delectus ab at similique consequatur at aut.","fullText":"Updated Full text eda526b9. Excepturi in ex enim ut. Quo aut architecto. Dolores aut dolore. Exercitationem sed cupiditate.","author":"Updated QA Author 80031ad3"}

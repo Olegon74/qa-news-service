@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 80b7bb2b What's Become of Waring","previewText":"Preview 4c22e60c: Saepe tempore necessitatibus numquam corporis assumenda ut sit.","fullText":"Full text 24fb9aeb. Odit autem deserunt. Provident deleniti vero ab. Officia optio est cumque dolores tempore quidem. Aliquid natus dolorem saepe est sed.","author":"QA Author cc1d03a2"}

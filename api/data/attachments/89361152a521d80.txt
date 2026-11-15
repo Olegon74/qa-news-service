@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 8f053884 In Dubious Battle","previewText":"Preview e10f45bb: Est et et consequuntur architecto assumenda quia neque officia culpa et impedit ut.","fullText":"Full text 1216d734. Qui blanditiis facere ratione expedita ut est. Voluptate ullam perspiciatis et alias officiis aliquid. Ea voluptas cumque est. Consectetur sequi repudiandae cupiditate aut.","author":"QA Author 9c05c8c8"}

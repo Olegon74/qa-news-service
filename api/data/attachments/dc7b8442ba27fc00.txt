@@ -1,0 +1,16 @@
+Status: 200
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 09:15:54 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: [{"id":13,"title":"TEST News 6d8dd140 Time of our Darkness","previewText":"Preview dc024d22: Qui cupiditate odit veniam architecto facere quia earum doloremque.","fullText":"Full text 95b2852e. Earum incidunt ipsum quo cupiditate delectus ipsam. Quisquam eum autem commodi. Fugit ea fugiat ipsam est sunt.","author":"QA Author 5b8d2d87","status":"DRAFT","createdAt":"2026-11-15T09:15:54.413721","updatedAt":"2026-11-15T09:15:54.413721","publishedAt":null,"archivedAt":null}]

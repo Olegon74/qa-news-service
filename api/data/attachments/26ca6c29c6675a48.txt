@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 2eb40708 The Needle's Eye","previewText":"Preview 65685895: Quia nulla harum quaerat impedit sit et omnis consequuntur qui.","fullText":"Full text 0ea87e59. Et dignissimos minus est sequi quam adipisci. Quos pariatur omnis molestias. Ipsum voluptatibus ea eos corrupti. Ea recusandae eius dolorem odit.","author":"QA Author da455f2f"}

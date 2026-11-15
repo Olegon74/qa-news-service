@@ -1,4 +1,0 @@
-POST http://localhost:8080/api/news
-Headers: Accept=*/*
-Content-Type=application/json
-Body: {"title":"TEST News a3671741 Frequent Hearses","previewText":"Preview 267ef5f9: Sapiente ducimus eius enim laudantium iusto dolore voluptas natus molestias.","fullText":"Full text d5f55678. Dolores officia quia voluptate itaque eum dolorem perspiciatis. Sint hic et officiis. Error enim corporis. Cumque illo voluptas similique praesentium cum est sunt. Quos delectus et esse vel sunt.","author":"QA Author e012931e"}

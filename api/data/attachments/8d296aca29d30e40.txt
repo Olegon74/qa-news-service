@@ -1,0 +1,16 @@
+Status: 200
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 09:15:52 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: {"id":2,"title":"TEST News 2e5a5dd1 Waiting for the Barbarians","previewText":"Preview 19d58713: Qui sunt laudantium ea minima in inventore ullam tenetur.","fullText":"Full text 9d09bb28. Quas voluptatem dolorem dolor qui. Quidem vel ut doloribus est. Et explicabo et. Qui perspiciatis autem laudantium eos eligendi tempore.","author":"QA Author f156e93a","status":"PUBLISHED","createdAt":"2026-11-15T09:15:52.080082","updatedAt":"2026-11-15T09:15:52.080082","publishedAt":"2026-11-15T09:15:52.116358","archivedAt":null}

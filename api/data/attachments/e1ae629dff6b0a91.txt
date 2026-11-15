@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 9b92c5b1 The Moving Finger","previewText":"Preview 84376613: Architecto voluptates debitis quia ea in alias est est ut tempora.","fullText":"Full text 35516fa2. Excepturi odio beatae officia praesentium ad. Molestias vitae ut voluptatem sint necessitatibus consequatur ea. Sunt sed omnis eum vitae omnis. Cupiditate dolorum iure natus omnis qui sunt cupiditate.","author":"QA Author 10bc6e27"}

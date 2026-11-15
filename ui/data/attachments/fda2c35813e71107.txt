@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News fa95447a The Skull Beneath the Skin","previewText":"Preview d48d14c3: Animi dignissimos aliquid iusto ad laborum tenetur placeat sit voluptatibus.","fullText":"Full text 30b238a7. Beatae ut earum est qui natus molestiae quia. Molestiae aperiam et voluptatem quia. Repellat eaque dolore et maiores rerum pariatur animi. Odit repellendus eius ipsa laborum. Repellendus ea est porro ducimus rerum.","author":"QA Author 98f259bf"}

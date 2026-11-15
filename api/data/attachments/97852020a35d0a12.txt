@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 783b0753 Now Sleeps the Crimson Petal","previewText":"Preview 635122b1: Sit dolores dolor maxime repellat eum in distinctio illo odit.","fullText":"Full text 8a81d49c. Facere sint saepe officia repudiandae laudantium suscipit aut. Quibusdam provident quaerat aut quaerat. Ipsa voluptatem error est non. Fugit vero quia molestiae facilis et sit beatae. Possimus ea possimus similique dolorum.","author":"QA Author 05a33ad1"}

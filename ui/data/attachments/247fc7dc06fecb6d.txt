@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 66b098d6 To Your Scattered Bodies Go","previewText":"Preview ff35ec11: Deserunt minus quibusdam qui sed corporis veritatis sapiente repellat aperiam iste in.","fullText":"Full text 20b29653. Tempora ex a ut magnam nihil ex rerum. Earum accusamus numquam nobis cupiditate harum ipsum et. Voluptas rerum fugit amet enim perferendis sed.","author":"QA Author e0d54874"}

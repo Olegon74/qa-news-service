@@ -1,0 +1,16 @@
+Status: 200
+Headers: Vary=Origin
+Vary=Access-Control-Request-Method
+Vary=Access-Control-Request-Headers
+X-Content-Type-Options=nosniff
+X-XSS-Protection=0
+Cache-Control=no-cache, no-store, max-age=0, must-revalidate
+Pragma=no-cache
+Expires=0
+X-Frame-Options=DENY
+Content-Type=application/json
+Transfer-Encoding=chunked
+Date=Sun, 15 Nov 2026 09:15:52 GMT
+Keep-Alive=timeout=60
+Connection=keep-alive
+Body: {"id":4,"title":"TEST News f67ad81b Antic Hay","previewText":"Preview fb1067d6: Ipsum corrupti officiis ducimus in rem vel sed enim aspernatur maxime nihil.","fullText":"Full text 4b032d76. Iste odio magni. Eaque earum et. Ut praesentium ullam architecto quo et aut. Error aliquam in dignissimos magnam reprehenderit.","author":"QA Author 0cdb5569","status":"PUBLISHED","createdAt":"2026-11-15T09:15:52.335733","updatedAt":"2026-11-15T09:15:52.335733","publishedAt":"2026-11-15T09:15:52.361808","archivedAt":null}

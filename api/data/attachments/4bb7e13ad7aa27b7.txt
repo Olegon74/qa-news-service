@@ -1,4 +1,0 @@
-POST http://localhost:8080/api/news
-Headers: Accept=*/*
-Content-Type=application/json
-Body: {"title":"TEST News a383465f Eyeless in Gaza","previewText":"Preview 21b75533: Incidunt nemo velit aut facilis vel rerum aperiam distinctio recusandae ut quia nihil.","fullText":"Full text 8d3d6c5f. Incidunt quam et animi provident dolores. Sapiente libero est ducimus quae. Voluptatem facere atque voluptatem. Qui explicabo et eaque sequi ducimus nulla. Et aspernatur dolor doloremque beatae et consequatur veritatis.","author":"QA Author e2c385f0"}

@@ -1,4 +1,0 @@
-POST http://localhost:8080/api/news
-Headers: Accept=*/*
-Content-Type=application/json
-Body: {"title":"TEST News 88fdd728 Of Human Bondage","previewText":"Preview d91010d5: Assumenda voluptate fugit ipsam natus assumenda rerum voluptatem quisquam.","fullText":"","author":"QA Author 2aa2b931"}

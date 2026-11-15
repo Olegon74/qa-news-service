@@ -1,4 +1,0 @@
-POST http://localhost:8080/api/news
-Headers: Accept=*/*
-Content-Type=application/json
-Body: {"title":"TEST News 1b633ac3 All the King's Men","previewText":"Preview d3420d47: Doloribus harum sunt qui ducimus voluptatem vitae ut natus.","fullText":"Full text beee4f09. Enim impedit quidem in. Nobis facilis nulla qui quas voluptatum consequatur. Consequatur et corporis. Nihil quis repudiandae non hic dolorem dolor aut.","author":""}

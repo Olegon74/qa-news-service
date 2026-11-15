@@ -1,4 +1,0 @@
-POST http://localhost:8080/api/news
-Headers: Accept=*/*
-Content-Type=application/json
-Body: {"title":"TEST News 4f4fa361 Surprised by Joy","previewText":"Preview 3194240a: Non et beatae aspernatur ut esse accusamus enim quis officia nemo eum recusandae.","fullText":"Full text 8b190513. Animi cupiditate qui dolor nostrum optio. Qui laboriosam vitae. Et possimus est corporis dolores eligendi voluptates saepe.","author":"QA Author 321c1444"}

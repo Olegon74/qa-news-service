@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News 6d8dd140 Time of our Darkness","previewText":"Preview dc024d22: Qui cupiditate odit veniam architecto facere quia earum doloremque.","fullText":"Full text 95b2852e. Earum incidunt ipsum quo cupiditate delectus ipsam. Quisquam eum autem commodi. Fugit ea fugiat ipsam est sunt.","author":"QA Author 5b8d2d87"}

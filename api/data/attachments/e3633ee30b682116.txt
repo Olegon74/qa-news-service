@@ -1,0 +1,4 @@
+POST http://localhost:8080/api/news
+Headers: Accept=*/*
+Content-Type=application/json
+Body: {"title":"TEST News f71b6ff2 A Scanner Darkly","previewText":"Preview 2e3b27cf: Rerum explicabo sit repudiandae voluptas quia dolores est provident assumenda ut quasi non.","fullText":"Full text 0b564f0e. Delectus odit accusantium ut quos cum. Tempora nostrum nobis consequatur sequi quia molestias. In maiores minima ea aut consequatur voluptate. Quas alias harum quo voluptate sit quia doloremque.","author":"QA Author 4195da3e"}
