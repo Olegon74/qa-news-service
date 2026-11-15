@@ -21,12 +21,28 @@ spring:
       hibernate:
         format_sql: true
 
-springdoc:
-  swagger-ui:
-    path: /swagger-ui/index.html
+  kafka:
+    bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:localhost:9094}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      acks: all
+      retries: 3
+      properties:
+        delivery.timeout.ms: 15000
+        request.timeout.ms: 5000
+        max.block.ms: 5000
 
 app:
+  kafka:
+    topics:
+      published: news.published
+      archived: news.archived
   security:
     jwt:
       secret: ${APP_SECURITY_JWT_SECRET:change-me-to-a-long-secret-key-for-local-development-only-change-me-please}
       expiration-ms: ${APP_SECURITY_JWT_EXPIRATION_MS:3600000}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui/index.html

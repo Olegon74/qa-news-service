@@ -5,15 +5,21 @@ import com.example.qanewsservice.dto.request.UpdateNewsRequest;
 import com.example.qanewsservice.dto.response.NewsResponse;
 import com.example.qanewsservice.exception.InvalidNewsStatusException;
 import com.example.qanewsservice.exception.NewsNotFoundException;
+import com.example.qanewsservice.kafka.dto.NewsEvent;
 import com.example.qanewsservice.mapper.NewsMapper;
 import com.example.qanewsservice.model.News;
 import com.example.qanewsservice.model.NewsStatus;
 import com.example.qanewsservice.repository.NewsRepository;
 import com.example.qanewsservice.service.NewsService;
 import java.time.LocalDateTime;
+import java.time.Instant;
+import java.time.ZoneOffset;
+import java.time.temporal.ChronoUnit;
+import java.util.UUID;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
@@ -22,6 +28,7 @@ public class NewsServiceImpl implements NewsService {
 
     private final NewsRepository newsRepository;
     private final NewsMapper newsMapper;
+    private final ApplicationEventPublisher eventPublisher;
 
     @Override
     @Transactional
@@ -69,8 +76,12 @@ public class NewsServiceImpl implements NewsService {
         }
 
         news.setStatus(NewsStatus.PUBLISHED);
-        news.setPublishedAt(LocalDateTime.now());
-        return newsMapper.toResponse(newsRepository.save(news));
+        news.setPublishedAt(LocalDateTime.now(ZoneOffset.UTC).truncatedTo(ChronoUnit.MICROS));
+        News saved = newsRepository.save(news);
+        eventPublisher.publishEvent(new NewsEvent(UUID.randomUUID(), "NEWS_PUBLISHED", saved.getId(),
+                saved.getTitle(), saved.getStatus(), Instant.now(),
+                saved.getPublishedAt().toInstant(ZoneOffset.UTC), null));
+        return newsMapper.toResponse(saved);
     }
 
     @Override
@@ -82,8 +93,12 @@ public class NewsServiceImpl implements NewsService {
         }
 
         news.setStatus(NewsStatus.ARCHIVED);
-        news.setArchivedAt(LocalDateTime.now());
-        return newsMapper.toResponse(newsRepository.save(news));
+        news.setArchivedAt(LocalDateTime.now(ZoneOffset.UTC).truncatedTo(ChronoUnit.MICROS));
+        News saved = newsRepository.save(news);
+        eventPublisher.publishEvent(new NewsEvent(UUID.randomUUID(), "NEWS_ARCHIVED", saved.getId(),
+                saved.getTitle(), saved.getStatus(), Instant.now(), null,
+                saved.getArchivedAt().toInstant(ZoneOffset.UTC)));
+        return newsMapper.toResponse(saved);
     }
 
     @Override
